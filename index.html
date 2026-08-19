@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Red Científica Boliviana: una red abierta para conectar a personas interesadas en la ciencia y la investigación relacionadas con Bolivia." />
+    <meta name="theme-color" content="#0c3452" />
+    <title>Red Científica Boliviana</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="content.js" defer></script>
+    <script src="site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content" data-i18n="skipToContent">Saltar al contenido</a>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="brand" href="#inicio" aria-label="Red Científica Boliviana, inicio">
+          <span class="brand-mark" aria-hidden="true">RCB</span>
+          <span>Red Científica<br />Boliviana</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-i18n-aria-label="openMenu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+        <nav id="site-nav" aria-label="Navegación principal" data-i18n-aria-label="mainNavigation">
+          <a href="#nosotros" data-i18n="navAbout">La red</a>
+          <a href="#actividades" data-i18n="navActivities">Actividades</a>
+          <a href="#charlas" data-i18n="navTalks">Charlas</a>
+          <a href="#contacto" data-i18n="navContact">Contacto</a>
+        </nav>
+        <div class="language-switcher" role="group" aria-label="Idioma" data-i18n-aria-label="languageLabel">
+          <button type="button" data-language="es" aria-pressed="true">ES</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section id="inicio" class="hero">
+        <div class="container hero-grid">
+          <div>
+            <p class="eyebrow" data-i18n="heroEyebrow">Ciencia, colaboración y Bolivia</p>
+            <h1 data-i18n="heroTitle">Conectamos a quienes hacen y acompañan la ciencia relacionada con Bolivia.</h1>
+            <p class="hero-copy" data-i18n="heroText">La Red Científica Boliviana es un espacio abierto para compartir conocimiento, impulsar conversaciones y acercar a personas interesadas en la investigación.</p>
+            <div class="hero-actions">
+              <a class="button button-primary join-link" href="#unirse" data-i18n="joinCta">Únete a la red</a>
+              <a class="button button-secondary" href="#proponer" data-i18n="talkCta">Propón una charla</a>
+            </div>
+          </div>
+          <div class="hero-panel" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <span class="node node-one"></span><span class="node node-two"></span><span class="node node-three"></span>
+            <p>RCB</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="nosotros" class="section">
+        <div class="container two-column">
+          <div>
+            <p class="eyebrow" data-i18n="aboutEyebrow">Sobre la red</p>
+            <h2 data-i18n="aboutTitle">Un punto de encuentro para la investigación.</h2>
+          </div>
+          <div class="prose">
+            <p data-i18n="missionText">Nuestra misión es fortalecer los vínculos entre personas y comunidades que investigan, comunican o se interesan por temas científicos relacionados con Bolivia.</p>
+            <h3 data-i18n="objectivesTitle">Objetivos</h3>
+            <ul id="objectives-list"></ul>
+            <h3 data-i18n="participateTitle">¿Quiénes pueden participar?</h3>
+            <p data-i18n="participateText">Investigadores, estudiantes de posgrado, profesionales, instituciones y toda persona con interés en la ciencia y la investigación relacionadas con Bolivia.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="actividades" class="section section-muted">
+        <div class="container">
+          <p class="eyebrow" data-i18n="activitiesEyebrow">Actividades</p>
+          <h2 data-i18n="activitiesTitle">Conversaciones que acercan el conocimiento.</h2>
+          <div id="activities-grid" class="card-grid"></div>
+        </div>
+      </section>
+
+      <section id="charlas" class="section">
+        <div class="container">
+          <div class="section-heading">
+            <div><p class="eyebrow" data-i18n="talksEyebrow">Charlas científicas</p><h2 data-i18n="talksTitle">Un espacio para compartir investigaciones e ideas.</h2></div>
+            <a class="text-link" href="#proponer" data-i18n="talksLink">Proponer una charla <span aria-hidden="true">→</span></a>
+          </div>
+          <div id="talks-content"></div>
+        </div>
+      </section>
+
+      <section id="unirse" class="section callout-section">
+        <div class="container callout">
+          <div><p class="eyebrow" data-i18n="joinEyebrow">Únete</p><h2 data-i18n="joinTitle">Sé parte de la conversación.</h2><p data-i18n="joinText">Recibe novedades y mantente cerca de las actividades de la Red Científica Boliviana.</p></div>
+          <div id="join-action"></div>
+        </div>
+      </section>
+
+      <section id="proponer" class="section">
+        <div class="container callout callout-light">
+          <div><p class="eyebrow" data-i18n="submitEyebrow">Proponer una charla</p><h2 data-i18n="submitTitle">Comparte una investigación, una idea o un tema.</h2><p data-i18n="submitText">Usa el formulario para proponer una charla o tema de investigación para una actividad futura.</p></div>
+          <a class="button button-primary external-link" data-config-link="talkFormUrl" target="_blank" rel="noopener noreferrer" data-i18n="submitCta">Enviar propuesta</a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacto" class="site-footer">
+      <div class="container footer-grid">
+        <div><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true">RCB</span><span>Red Científica<br />Boliviana</span></a><p data-i18n="footerText">Una red abierta para la ciencia relacionada con Bolivia.</p></div>
+        <div><h2 data-i18n="contactTitle">Contacto</h2><a class="email-link" data-config-link="contactEmail"></a></div>
+        <div><h2 data-i18n="footerNavigate">Navegar</h2><a href="#nosotros" data-i18n="navAbout">La red</a><a href="#charlas" data-i18n="navTalks">Charlas</a><a href="#unirse" data-i18n="joinCta">Únete a la red</a></div>
+      </div>
+      <div class="container footer-bottom"><span>© <span id="current-year"></span> Red Científica Boliviana</span><span data-i18n="footerRights">Todos los derechos reservados.</span></div>
+    </footer>
+  </body>
+</html>
