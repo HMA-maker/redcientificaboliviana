@@ -1,0 +1,2 @@
+record_id,record_type,title_es,title_en,summary_es,summary_en,theme_es,theme_en,disciplines_es,disciplines_en,department,public_location_label_es,public_location_label_en,public_latitude,public_longitude,status_es,status_en,map_visible,published
+project-demo-001,project,Proyecto de demostración,Demonstration project,Registro sintético,Synthetic record,Biodiversidad,Biodiversity,"Ecología; Ciencia de datos","Ecology; Data science",Santa Cruz,Santa Cruz (nivel departamental),Santa Cruz (department level),-17.8,-63.2,Activo,Active,true,true

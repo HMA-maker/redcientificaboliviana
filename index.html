@@ -26,6 +26,8 @@
           <a href="#nosotros" data-i18n="navAbout">La red</a>
           <a href="#actividades" data-i18n="navActivities">Actividades</a>
           <a href="#charlas" data-i18n="navTalks">Charlas</a>
+          <a href="#directorio" data-i18n="navDirectory">Directorio</a>
+          <a href="#mapa" data-i18n="navMap">Mapa</a>
           <a href="#contacto" data-i18n="navContact">Contacto</a>
         </nav>
         <div class="language-switcher" role="group" aria-label="Idioma" data-i18n-aria-label="languageLabel">
@@ -93,6 +95,45 @@
         <div class="container callout">
           <div><p class="eyebrow" data-i18n="joinEyebrow">Únete</p><h2 data-i18n="joinTitle">Sé parte de la conversación.</h2><p data-i18n="joinText">Recibe novedades y mantente cerca de las actividades de la Red Científica Boliviana.</p></div>
           <div id="join-action"></div>
+        </div>
+      </section>
+
+      <section id="directorio" class="section section-muted">
+        <div class="container">
+          <p class="eyebrow" data-i18n="recordsEyebrow">Directorio público</p>
+          <h2 data-i18n="recordsTitle">Personas, instituciones e iniciativas aprobadas.</h2>
+          <p class="section-copy" data-i18n="recordsText">Este directorio muestra únicamente información revisada y autorizada para publicación.</p>
+          <div class="directory-controls" aria-label="Filtros del directorio">
+            <label><span data-i18n="searchLabel">Buscar registros</span><input id="record-search" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="Buscar por nombre, tema o disciplina" /></label>
+            <label><span data-i18n="filterType">Tipo de registro</span><select id="filter-type"></select></label>
+            <label><span data-i18n="filter-discipline">Disciplina</span><select id="filter-discipline"></select></label>
+            <label><span data-i18n="filter-department">Departamento</span><select id="filter-department"></select></label>
+            <label><span data-i18n="filter-status">Estado</span><select id="filter-status"></select></label>
+          </div>
+          <p class="dataset-note" data-i18n="publicDatasetNote">Datos de demostración sintéticos. Los registros reales se publican solo tras revisión y consentimiento.</p>
+          <div id="records-content" class="records-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section id="mapa" class="section">
+        <div class="container">
+          <p class="eyebrow" data-i18n="mapEyebrow">Mapa público</p>
+          <h2 data-i18n="mapTitle">Iniciativas aprobadas en Bolivia.</h2>
+          <p class="section-copy" data-i18n="mapText">Las ubicaciones se muestran solo a nivel departamental o regional aprobado.</p>
+          <div class="map-layout">
+            <div class="bolivia-map" data-i18n-aria-label="mapTitle" aria-label="Mapa público de iniciativas aprobadas en Bolivia">
+              <svg id="department-boundaries" class="map-shape" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+              <div id="map-markers" class="map-markers"></div>
+            </div>
+            <aside class="map-panel"><h3 data-i18n="mapLegend">Leyenda</h3><fieldset class="map-layers"><legend class="sr-only" data-i18n="mapLegend">Leyenda</legend><label><input class="map-layer-filter" type="checkbox" value="problem" checked /><span class="legend-dot problem"></span><span data-i18n="mapProblems">Problemas</span></label><label><input class="map-layer-filter" type="checkbox" value="project" checked /><span class="legend-dot project"></span><span data-i18n="mapProjects">Proyectos</span></label><label><input class="map-layer-filter" type="checkbox" value="institution" checked /><span class="legend-dot institution"></span><span data-i18n="mapInstitutions">Instituciones</span></label><label><input class="map-layer-filter" type="checkbox" value="resource" checked /><span class="legend-dot resource"></span><span data-i18n="mapResources">Recursos institucionales</span></label></fieldset><div id="map-detail" class="map-detail" aria-live="polite"></div><div id="map-list" class="map-list" aria-live="polite"></div></aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="enviar-registro" class="section section-muted">
+        <div class="container callout callout-light">
+          <div><p class="eyebrow" data-i18n="recordSubmitEyebrow">Enviar un registro</p><h2 data-i18n="recordSubmitTitle">Propón un problema, proyecto, institución o recurso.</h2><p data-i18n="recordSubmitText">Las propuestas se revisan de forma privada antes de incorporarse al conjunto público aprobado.</p></div>
+          <div id="record-submit-action"></div>
         </div>
       </section>
 

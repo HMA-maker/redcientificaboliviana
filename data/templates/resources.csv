@@ -1,0 +1,2 @@
+record_id,record_type,title_es,title_en,summary_es,summary_en,institution,contribution_type_es,contribution_type_en,disciplines_es,disciplines_en,department,public_location_label_es,public_location_label_en,status_es,status_en,related_project_ids,map_visible,published
+resource-demo-001,resource,Recurso de demostración,Demonstration resource,Registro sintético,Synthetic record,Institución de demostración,Capacitación,Training,Ciencia de datos,Data science,Nacional,Disponibilidad nacional,Nationwide availability,Disponible,Available,project-demo-001,false,true

@@ -1,0 +1,2 @@
+record_id,record_type,name,title_es,title_en,summary_es,summary_en,institution,role_es,role_en,disciplines_es,disciplines_en,department,public_location_label_es,public_location_label_en,status_es,status_en,published
+person-demo-001,person,Persona de demostración,Perfil de demostración,Demonstration profile,Registro sintético,Synthetic record,Institución de demostración,Investigadora,Researcher,"Ciencias ambientales; Ecología","Environmental sciences; Ecology",La Paz,La Paz (nivel departamental),La Paz (department level),Disponible para colaborar,Open to collaboration,true

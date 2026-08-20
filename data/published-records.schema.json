@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Red Científica Boliviana approved public record",
+  "type": "object",
+  "required": ["record_id", "record_type", "published"],
+  "properties": {
+    "record_id": { "type": "string", "pattern": "^[a-z]+-[a-z0-9-]+$" },
+    "record_type": { "enum": ["person", "institution", "problem", "project", "resource"] },
+    "published": { "const": true },
+    "title_es": { "type": "string" }, "title_en": { "type": "string" },
+    "name": { "type": "string" }, "summary_es": { "type": "string" }, "summary_en": { "type": "string" },
+    "disciplines_es": { "type": "array", "items": { "type": "string" } },
+    "disciplines_en": { "type": "array", "items": { "type": "string" } },
+    "department": { "type": "string" }, "public_location_label_es": { "type": "string" }, "public_location_label_en": { "type": "string" },
+    "public_latitude": { "type": "number" }, "public_longitude": { "type": "number" },
+    "map_visible": { "type": "boolean" }, "publication_date": { "type": "string", "format": "date" }
+  },
+  "not": { "anyOf": [{ "required": ["email"] }, { "required": ["phone"] }, { "required": ["review_notes"] }, { "required": ["submitter_email"] }] }
+}

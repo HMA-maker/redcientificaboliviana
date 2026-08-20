@@ -1,0 +1,2 @@
+record_id,record_type,title_es,title_en,summary_es,summary_en,theme_es,theme_en,disciplines_es,disciplines_en,department,public_location_label_es,public_location_label_en,public_latitude,public_longitude,status_es,status_en,map_visible,published
+problem-demo-001,problem,Necesidad de demostración,Demonstration need,Registro sintético,Synthetic record,Agua,Water,"Hidrología; Salud pública","Hydrology; Public health",Chuquisaca,Chuquisaca (ubicación generalizada),Chuquisaca (generalized location),-19,-65.3,Buscando colaboradores,Seeking collaborators,true,true
