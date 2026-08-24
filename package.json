@@ -1,0 +1,7 @@
+{
+  "name": "red-cientifica-boliviana",
+  "private": true,
+  "scripts": {
+    "build:data": "python3 scripts/build_published_data.py"
+  }
+}

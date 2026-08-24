@@ -86,11 +86,21 @@ Phase 1 deliberately contains no user accounts, researcher or institution direct
 Phase 2 adds a static, approved-only public directory and generalized map overview. It does not connect to Google Form response sheets or expose private submissions.
 
 - Form URLs are configured once in `SITE_CONFIG.forms` in `content.js`.
-- `data/published-records.json` contains only reviewed public records. It currently contains clearly labeled synthetic demonstration data.
+- `data/published-records.json` contains only reviewed public records. It is generated from the approved CSV files in `data/published/` and currently contains clearly labeled synthetic demonstration data.
 - `data/published-records.schema.json` and `data/templates/` define the approved import shape.
 - Google Form intake, field mapping, moderation, privacy, and map rules are documented in `docs/`.
 
 Before publishing a real record, ensure its private Google Sheets moderation status is `Approved`, publication consent is affirmative, public fields are reviewed, and any location is safe to publish. Never add raw form responses, email addresses, reviewer notes, or private documents to the public dataset.
+
+### Build approved public data
+
+Edit the relevant approved public CSV under `data/published/`, then run:
+
+```sh
+npm run build:data
+```
+
+This generates `data/published-records.json` without changing the website data interface. See [docs/published-data-workflow.md](docs/published-data-workflow.md) for moderation, export, and verification instructions.
 
 ### Update an English Form URL
 

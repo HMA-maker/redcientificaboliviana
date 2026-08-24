@@ -2,28 +2,45 @@
   "dataset_notice": "Synthetic demonstration data only. Do not replace with raw form responses.",
   "records": [
     {
-      "record_id": "person-demo-001",
+      "record_id": "person-0001",
       "record_type": "person",
-      "name": "Investigadora de demostración",
-      "title_es": "Perfil de colaboración en ciencias ambientales",
-      "title_en": "Environmental science collaboration profile",
-      "summary_es": "Perfil sintético para demostrar cómo se muestran las áreas de interés aprobadas.",
-      "summary_en": "Synthetic profile demonstrating how approved areas of interest are displayed.",
-      "biography_es": "Ejemplo no identificable de una persona interesada en investigación y colaboración.",
-      "biography_en": "A non-identifying example of a person interested in research and collaboration.",
-      "institution": "Institución de demostración",
-      "role_es": "Investigadora",
-      "role_en": "Researcher",
-      "disciplines_es": ["Ciencias ambientales", "Ecología"],
-      "disciplines_en": ["Environmental sciences", "Ecology"],
-      "theme_es": "Biodiversidad",
-      "theme_en": "Biodiversity",
-      "department": "La Paz",
-      "municipality": "Ubicación no publicada",
-      "public_location_label_es": "La Paz (nivel departamental)",
-      "public_location_label_en": "La Paz (department level)",
-      "status_es": "Disponible para colaborar",
-      "status_en": "Open to collaboration",
+      "name": "Julio Chávez",
+      "title_es": "Perfil de investigación",
+      "title_en": "Research profile",
+      "summary_es": "Investigación sobre el transporte de partículas en flujos turbulentos y problemas ambientales.",
+      "summary_en": "Research on particle transport in turbulent flows and environmental problems.",
+      "biography_es": "Julio Chávez es investigador en mecánica de fluidos especializado en el transporte de partículas en flujos turbulentos. Su trabajo combina experimentos y análisis numérico para estudiar sistemas complejos. Su investigación busca conectar la dinámica de fluidos fundamental con problemas ambientales de interés científico y social.",
+      "biography_en": "Julio Chávez is a fluid mechanics researcher specializing in particle transport in turbulent flows. His work combines experiments and numerical analysis to study complex systems. His research seeks to connect fundamental fluid dynamics with environmental problems of scientific and social relevance.",
+      "institution": "Universidad de Washington",
+      "research_areas_es": [
+        "Mecánica de Fluidos",
+        "Turbulencia",
+        "Estadística",
+        "Experimentos",
+        "Análisis teórico",
+        "Computación científica"
+      ],
+      "research_areas_en": [
+        "Fluid mechanics",
+        "Turbulence",
+        "Statistics",
+        "Experiments",
+        "Theoretical analysis",
+        "Scientific computing"
+      ],
+      "disciplines_es": [
+        "Ingenierías, tecnología e infraestructura"
+      ],
+      "disciplines_en": [
+        "Engineering, technology and infrastructure"
+      ],
+      "country": "España",
+      "city_region": "Barcelona",
+      "public_location_label_es": "Barcelona (España)",
+      "public_location_label_en": "Barcelona (Spain)",
+      "orcid_url": "https://orcid.org/0009-0001-9861-8890",
+      "website_url": "https://julio-chavez.github.io/",
+      "google_scholar_url": "https://scholar.google.com/citations?user=qpYRiaUAAAAJ&hl=en&oi=ao",
       "map_visible": false,
       "published": true,
       "publication_date": "2026-08-21"
@@ -36,8 +53,14 @@
       "title_en": "Demonstration water science laboratory",
       "summary_es": "Institución sintética que muestra una ficha pública aprobada.",
       "summary_en": "A synthetic institution showing an approved public record.",
-      "disciplines_es": ["Hidrología", "Química ambiental"],
-      "disciplines_en": ["Hydrology", "Environmental chemistry"],
+      "disciplines_es": [
+        "Hidrología",
+        "Química ambiental"
+      ],
+      "disciplines_en": [
+        "Hydrology",
+        "Environmental chemistry"
+      ],
       "theme_es": "Agua",
       "theme_en": "Water",
       "institution_type_es": "Laboratorio",
@@ -61,8 +84,14 @@
       "title_en": "Need for water-quality data",
       "summary_es": "Problema sintético que solicita evidencia pública a escala departamental.",
       "summary_en": "A synthetic problem seeking public evidence at department level.",
-      "disciplines_es": ["Hidrología", "Salud pública"],
-      "disciplines_en": ["Hydrology", "Public health"],
+      "disciplines_es": [
+        "Hidrología",
+        "Salud pública"
+      ],
+      "disciplines_en": [
+        "Hydrology",
+        "Public health"
+      ],
       "theme_es": "Agua",
       "theme_en": "Water",
       "department": "Chuquisaca",
@@ -84,8 +113,14 @@
       "title_en": "Community biodiversity monitoring",
       "summary_es": "Proyecto sintético de seguimiento de biodiversidad con ubicación regional aprobada.",
       "summary_en": "A synthetic biodiversity monitoring project with an approved regional location.",
-      "disciplines_es": ["Ecología", "Ciencia de datos"],
-      "disciplines_en": ["Ecology", "Data science"],
+      "disciplines_es": [
+        "Ecología",
+        "Ciencia de datos"
+      ],
+      "disciplines_en": [
+        "Ecology",
+        "Data science"
+      ],
       "theme_es": "Biodiversidad",
       "theme_en": "Biodiversity",
       "department": "Santa Cruz",
@@ -110,8 +145,12 @@
       "institution": "Institución de demostración",
       "contribution_type_es": "Capacitación",
       "contribution_type_en": "Training",
-      "disciplines_es": ["Ciencia de datos"],
-      "disciplines_en": ["Data science"],
+      "disciplines_es": [
+        "Ciencia de datos"
+      ],
+      "disciplines_en": [
+        "Data science"
+      ],
       "theme_es": "Tecnología",
       "theme_en": "Technology",
       "department": "Nacional",
@@ -120,8 +159,10 @@
       "public_location_label_en": "Nationwide availability",
       "status_es": "Disponible",
       "status_en": "Available",
+      "related_project_ids": [
+        "project-demo-001"
+      ],
       "map_visible": false,
-      "related_project_ids": ["project-demo-001"],
       "published": true,
       "publication_date": "2026-08-21"
     }
