@@ -1,107 +1,142 @@
-# Red Científica Boliviana — Phase 1
+# Red Científica Boliviana
 
-A small, static, bilingual public website for Red Científica Boliviana. It uses no build tools or runtime dependencies, so it can be hosted on GitHub Pages or any static-file host.
+Red Científica Boliviana is a bilingual (Spanish/English) static public website for a network connecting people interested in science and research related to Bolivia. It is intentionally a lightweight informational site with a reviewed public directory, a generalized map, and an activities calendar. It has no accounts, database, or automatic Google Forms/Sheets synchronization.
 
-## Local preview
+## Local use and validation
 
-No dependency installation is required. Open `index.html` in a browser, or serve the directory with any static web server. For example, if Python 3 is available:
+The site has no runtime dependencies or frontend build step. Python 3 is needed only to regenerate the public-data JSON.
 
 ```sh
+# Serve the site locally, then open http://localhost:8080/#/home
 python3 -m http.server 8080
+
+# Regenerate the approved public dataset
+python3 scripts/build_published_data.py
+# Equivalent when npm is installed
+npm run build:data
+
+# Static validation available in this repository
+git diff --check
+python3 -m json.tool data/published-records.json
 ```
 
-Then visit `http://localhost:8080`.
+There is no development command, linter, type checker, test runner, production build command, or production preview command configured in `package.json`. Browser validation is the production-equivalent check: test each route, both languages, the menu at a narrow viewport, form links, keyboard focus, directory, map, and activity calendar. A GitHub Pages deployment is triggered automatically by a successful push to `main`; do not manually deploy unless that workflow is intentionally changed.
 
-## Content updates
+## Site views and navigation
 
-All public content is in `content.js`:
+Top-level navigation uses hash views, rather than a continuous scrolling page:
 
-- `SITE_CONFIG` contains the contact email and external form URLs.
-- `SITE_CONTENT.es` and `SITE_CONTENT.en` hold every Spanish and English interface string.
-- `TALKS` is the list of talks.
+| View | Route |
+| --- | --- |
+| Home | `#/home` |
+| Network | `#/network` |
+| Activities | `#/activities` |
+| Directory | `#/directory` |
+| Map | `#/map` |
+| Contact | `#/contact` |
 
-### Add the join form
+`#/talks` is retained as a compatibility route and redirects to `#/activities`. Talks and other events are deliberately combined into Activities.
 
-Set `joinFormUrl` in `SITE_CONFIG` to the approved Google Form URL. Until a URL is supplied, the site displays a public “available soon” message instead of a broken or misleading link.
+Spanish is the default language. The visible language selector persists the choice for the browser session. All public interface strings and site settings live in [`content.js`](content.js): `SITE_CONTENT.es`, `SITE_CONTENT.en`, and `SITE_CONFIG`. When adding a string, add the same key to both language objects, attach it to markup with `data-i18n` (or the appropriate aria/placeholder variant), then test both language buttons on every affected view. Never leave a fallback Spanish key visible in English or vice versa.
 
-### Add a talk
+## Repository structure
 
-Add an object to `TALKS`, using confirmed information only:
+| Path | Purpose |
+| --- | --- |
+| `index.html` | Static shell and view markup. |
+| `site.js` | View routing, language selection, directory, map, and calendar rendering. |
+| `styles.css` | Responsive site styles. |
+| `content.js` | Bilingual content, public form URLs, activities, and coordinator names. |
+| `data/published/*.csv` | Approved public source records by record type. |
+| `data/published-records.json` | Generated public dataset used by the website; do not edit by hand. |
+| `data/bolivia-departments.geojson` | Generalized map boundaries. |
+| `data/templates/` | Header templates for approved data exports and private review mapping. |
+| `scripts/build_published_data.py` | CSV validation and JSON generator. |
+| `docs/` | Data governance, field mapping, Forms, map, and public-data workflow documentation. |
+| `.github/workflows/deploy-pages.yml` | GitHub Pages deployment on pushes to `main`. |
+
+## Activities and calendar
+
+Activities are maintained in `window.ACTIVITIES` in [`content.js`](content.js). It is currently empty because no approved public activities have been supplied; the empty state is intentional.
+
+Add an approved activity as an object with these fields:
 
 ```js
 {
-  titleEs: 'Título en español',
-  titleEn: 'English title',
-  speaker: 'Confirmed speaker name',
-  date: 'Confirmed date',
-  topic: 'Topic',
-  descriptionEs: 'Optional Spanish description',
-  descriptionEn: 'Optional English description',
-  recordingUrl: 'https://example.org/recording-or-material',
-  status: 'upcoming',
+  id: 'stable-activity-id',
+  published: true,
+  date: 'YYYY-MM-DD',
+  type: 'seminar', // seminar, talk, workshop, meeting, or other
+  title_es: 'Título aprobado',
+  title_en: 'Approved title',
+  description_es: 'Descripción aprobada',
+  description_en: 'Approved description',
+  registration_url: 'https://example.org/registration', // optional
+  recording_url: 'https://example.org/recording', // optional
 }
 ```
 
-Use an empty string for an optional recording URL or description; do not invent missing details. Current rendering intentionally handles an empty talks list.
+Use only approved titles, descriptions, dates, and links. Edit the same object to update it. To remove an activity from the public view while retaining the entry locally, set `published: false`; do not represent an archive with invented public text. An activity with a valid `date` and no `published: false` is displayed. Activities before the visitor's local calendar day are classified as past; the calendar adds `is-past` and renders those entries in the muted past-event style. Future and current-day entries are upcoming.
 
-### Update translations
+Month controls work with mouse, touch, and keyboard because they are native buttons. When activities exist, each calendar event is also a native button: its browser tooltip supplies the hover label, and click, tap, Enter, or Space shows its title, type, and approved description below the calendar. Optional registration and recording links appear only when supplied.
 
-Change the matching `es` and `en` values in `SITE_CONTENT` together. Spanish is the initial language, and the selection is retained for the browser session.
+## Public data, moderation, and consent
 
-## Validation
+Google Form responses remain private. The public site must consume only the generated, approved dataset—not raw response exports, private Sheets, moderation notes, or intake links.
 
-There is no package manager, linter, test runner, type checker, or production build because the site is dependency-free static HTML, CSS, and JavaScript. Before publishing, check the following:
+Current intake forms are configured in `SITE_CONFIG.forms`:
 
-```sh
-git diff --check
-python3 -m http.server 8080
-```
+- Join database form: `https://forms.gle/78z4KXUd22RLJPcg7`
+- Submit problem, project, institution, or resource: `https://forms.gle/2RrBAQgNgHHPqehM6`
 
-In a browser, test the navigation, both language buttons, mobile menu, contact email, external form URLs, and keyboard focus outlines.
+Review records privately with these moderation statuses: **Pending**, **Needs changes**, **Approved**, **Rejected**, and **Archived**. Only approved, publication-safe data belongs in `data/published/` and must use `published=true`.
+
+To update a public person, institution, problem, project, or resource:
+
+1. Review the private submission and moderation status outside this repository.
+2. Copy only approved public fields to the matching CSV in `data/published/`.
+3. For people, use the review mapping/template and all required consent columns.
+4. Run `python3 scripts/build_published_data.py`.
+5. Inspect the generated JSON diff and test the Directory and Map locally.
+6. Commit the edited CSV and generated `data/published-records.json` together.
+
+`data/published/people.csv`, `institutions.csv`, `problems.csv`, `projects.csv`, and `resources.csv` are source files. `data/published-records.json` is generated. The generator rejects private-looking CSV headers, invalid public data, duplicate IDs, and unsafe map coordinates; see [`docs/published-data-workflow.md`](docs/published-data-workflow.md) for the complete workflow.
+
+Consent is field-level: approval for one field does not authorize another. Missing or unclear consent is private. Email addresses, raw form responses, internal moderation notes, languages, participation interests, and project interests are never published by this workflow. A biography, research area, professional link, role, location, or photograph needs its own explicit consent. Omit fields without consent entirely—never render “Private”, “No consent”, or empty public labels.
+
+Store an approved public photograph as a committed public website asset before setting `photo_url` to its public site path. Do not use raw/private Google Drive URLs, and do not publish a photo unless photograph consent is affirmative. If no approved asset exists, leave `photo_url` blank so the existing no-photo behavior is used.
+
+## Network and map maintenance
+
+The Network coordinators/founders list is `window.COORDINATORS` in [`content.js`](content.js). It currently contains only the authorized public names: Julio Chávez, Kenji Shoji, and Natalia Machaca. Update that small list only with approved public information; do not add contact details or unapproved biographies.
+
+The map displays only records with `map_visible=true`, valid public latitude/longitude, and an approved generalized location. People should not appear as individual or precise map markers by default; the current Julio Chávez person record is intentionally map-hidden. Before enabling a map-visible record, verify that its location is approved, generalized, and safe, then update its matching public CSV and regenerate JSON. Never use a home address, personal location, or unapproved precise coordinate.
+
+## Maintenance checklist
+
+Before merging a content update:
+
+1. Confirm every public record, image, activity, and link is approved.
+2. Regenerate the data JSON after CSV changes.
+3. Run `git diff --check` and validate the JSON.
+4. Test all six routes, legacy `#/talks`, ES/EN, forms, directory, map, and keyboard navigation locally.
+5. Search the diff for private emails, raw Drive URLs, response data, notes, and secrets.
+6. Confirm generated JSON and source CSV updates are committed together.
+7. Push `main` and check the GitHub Pages workflow result.
+
+## Troubleshooting
+
+- **Missing records:** run the data generator; confirm the matching CSV row is `published=true`, has all required headers, and its record type is correct.
+- **Missing activities or empty calendar:** confirm the item is in `window.ACTIVITIES`, has a valid `YYYY-MM-DD` date, and is not `published: false`. An empty calendar is expected when no activities are approved.
+- **Empty map:** verify the JSON loaded, the map layer is checked, and the record has `map_visible=true` plus valid approved generalized coordinates.
+- **Translation problem or mixed language:** add the same key to both `SITE_CONTENT` objects and switch ES/EN through every affected route.
+- **Broken route:** use one of the documented `#/…` hashes; `#/talks` redirects to Activities.
+- **Invalid CSV or JSON:** run `python3 scripts/build_published_data.py` and `python3 -m json.tool data/published-records.json`; correct the reported source CSV rather than hand-editing generated JSON.
+- **Missing photograph:** leave `photo_url` blank until an approved public asset is committed; never substitute a Drive response URL.
+- **Private data appears publicly:** remove it from the source CSV, regenerate JSON, check the diff, and halt publication until consent is rechecked.
+- **Failed build:** there is no frontend build. Check Python availability and run the data generator directly; if npm is unavailable, use `python3 scripts/build_published_data.py`.
+- **Failed Git push:** inspect `git status`, `git remote -v`, and the remote branch state; fetch, resolve only understood changes, and never force-push or reset shared work.
 
 ## Deployment
 
-The included [GitHub Pages workflow](.github/workflows/deploy-pages.yml) deploys the root static files whenever `main` receives a push.
-
-1. Push the `phase-1-launch` branch and open a pull request into `main`.
-2. In GitHub repository settings, open **Pages** and set **Source** to **GitHub Actions**.
-3. Merge the pull request. The workflow will publish the site and provide its preview URL in the Actions run.
-4. Test that URL before pointing the custom domain to it.
-
-### Domain and DNS: `redcientificaboliviana.org`
-
-In GitHub Pages settings, add `redcientificaboliviana.org` as the custom domain and enable HTTPS after DNS has propagated. At the DNS provider, configure either:
-
-- Apex domain: four `A` records for `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`.
-- `www`: a `CNAME` record to `julio-chavez.github.io` (or the exact GitHub Pages host displayed by GitHub).
-
-DNS records and custom-domain steps should be verified against GitHub’s current Pages domain documentation before applying them. Do not create conflicting records.
-
-## Known limitations / Phase 2
-
-Phase 1 deliberately contains no user accounts, researcher or institution directories, database, search, forum, messaging, custom CMS, or administrative dashboard. Later phases can introduce those features after the public content and participation model have been validated.
-
-## Phase 2 public-data workflow
-
-Phase 2 adds a static, approved-only public directory and generalized map overview. It does not connect to Google Form response sheets or expose private submissions.
-
-- Form URLs are configured once in `SITE_CONFIG.forms` in `content.js`.
-- `data/published-records.json` contains only reviewed public records. It is generated from the approved CSV files in `data/published/` and currently contains clearly labeled synthetic demonstration data.
-- `data/published-records.schema.json` and `data/templates/` define the approved import shape.
-- Google Form intake, field mapping, moderation, privacy, and map rules are documented in `docs/`.
-
-Before publishing a real record, ensure its private Google Sheets moderation status is `Approved`, publication consent is affirmative, public fields are reviewed, and any location is safe to publish. Never add raw form responses, email addresses, reviewer notes, or private documents to the public dataset.
-
-### Build approved public data
-
-Edit the relevant approved public CSV under `data/published/`, then run:
-
-```sh
-npm run build:data
-```
-
-This generates `data/published-records.json` without changing the website data interface. See [docs/published-data-workflow.md](docs/published-data-workflow.md) for moderation, export, and verification instructions.
-
-### Update an English Form URL
-
-Replace the relevant `en: null` value in `SITE_CONFIG.forms`; the English interface will automatically use it. Until then, English visitors see an English notice and an explicitly labeled Spanish form link.
+The GitHub Actions workflow publishes the repository root to GitHub Pages when `main` is pushed. Configure Pages to use **GitHub Actions**, then set the custom domain in GitHub Pages settings only after DNS is configured and verified. For domain-specific DNS guidance, verify current GitHub Pages documentation before making changes.
