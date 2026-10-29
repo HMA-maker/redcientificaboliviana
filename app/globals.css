@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #102a43;
+  --muted: #486581;
+  --blue: #0c5278;
+  --blue-dark: #0a3855;
+  --aqua: #b9e4e4;
+  --paper: #f7fafc;
+  --line: #d9e2ec;
+  --white: #fff;
+  --focus: #e45b35;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--ink);
+  background: var(--white);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
