@@ -9,6 +9,7 @@
     "build:data": "python3 scripts/build_published_data.py"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
     "autoprefixer": "^10.6.2",
     "clsx": "^2.1.1",
     "lucide-react": "^1.63.0",
