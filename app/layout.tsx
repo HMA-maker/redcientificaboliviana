@@ -1,6 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { LanguageProvider } from '@/context/LanguageContext';
+import { AuthProvider } from '@/context/AuthContext';
+import { AuthModal } from '@/components/AuthModal';
 
 export const metadata: Metadata = {
   title: 'Red Científica Boliviana',
@@ -19,7 +21,10 @@ export default function RootLayout({
     <html lang="es">
       <body className="min-h-screen flex flex-col bg-white text-ink antialiased">
         <LanguageProvider>
-          {children}
+          <AuthProvider>
+            {children}
+            <AuthModal />
+          </AuthProvider>
         </LanguageProvider>
       </body>
     </html>

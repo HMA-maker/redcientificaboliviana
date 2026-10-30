@@ -93,6 +93,32 @@ export interface SiteContent {
   footerNavigate: string;
   footerText: string;
   footerRights: string;
+  loginNav: string;
+  loginTitle: string;
+  loginSubtitle: string;
+  emailLabel: string;
+  passwordLabel: string;
+  loginButton: string;
+  loginWithGoogle: string;
+  noAccountPrompt: string;
+  registerHere: string;
+  forgotPasswordPrompt: string;
+  registerTitle: string;
+  registerSubtitle: string;
+  fullNameLabel: string;
+  confirmPasswordLabel: string;
+  registerButton: string;
+  haveAccountPrompt: string;
+  loginHere: string;
+  resetTitle: string;
+  resetSubtitle: string;
+  resetButton: string;
+  backToLogin: string;
+  resetSentSuccess: string;
+  passwordsDontMatch: string;
+  authErrorGeneric: string;
+  logoutButton: string;
+  myProfileNav: string;
 }
 
 export const SITE_CONFIG = {
@@ -124,6 +150,9 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     recordSubmitEyebrow: 'Enviar un registro', recordSubmitTitle: 'Propón un problema, proyecto, institución o recurso.', recordSubmitText: 'Las propuestas se revisan de forma privada antes de incorporarse al conjunto público aprobado.', recordSubmitCta: 'Enviar un registro',
     submitEyebrow: 'Proponer una charla', submitTitle: 'Comparte una investigación, una idea o un tema.', submitText: 'Usa el formulario para proponer una charla o tema de investigación para una actividad futura.', submitCta: 'Enviar propuesta',
     contactTitle: 'Contacto', footerNavigate: 'Navegar', footerText: 'Una red abierta para la ciencia relacionada con Bolivia.', footerRights: 'Todos los derechos reservados.',
+    loginNav: 'Ingresar', loginTitle: 'Acceso a la Red', loginSubtitle: 'Ingresa para administrar tu perfil de investigación y contribuciones.', emailLabel: 'Correo electrónico', passwordLabel: 'Contraseña', loginButton: 'Iniciar Sesión', loginWithGoogle: 'Continuar con Google', noAccountPrompt: '¿Aún no tienes cuenta?', registerHere: 'Regístrate aquí', forgotPasswordPrompt: '¿Olvidaste tu contraseña?',
+    registerTitle: 'Registro de Investigador', registerSubtitle: 'Crea tu cuenta para formar parte del directorio de la comunidad científica.', fullNameLabel: 'Nombre y Apellidos', confirmPasswordLabel: 'Confirmar Contraseña', registerButton: 'Crear Cuenta', haveAccountPrompt: '¿Ya tienes una cuenta?', loginHere: 'Inicia sesión aquí',
+    resetTitle: 'Recuperar Contraseña', resetSubtitle: 'Ingresa tu correo para recibir las instrucciones de restablecimiento.', resetButton: 'Enviar enlace', backToLogin: 'Volver al inicio de sesión', resetSentSuccess: 'Si el correo está registrado, recibirás un enlace de recuperación en breve.', passwordsDontMatch: 'Las contraseñas no coinciden.', authErrorGeneric: 'Ocurrió un error en la autenticación. Por favor intenta nuevamente.', logoutButton: 'Cerrar Sesión', myProfileNav: 'Mi Perfil',
   },
   en: {
     metaDescription: 'Red Científica Boliviana: an open network connecting people interested in science and research related to Bolivia.',
@@ -144,6 +173,9 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     recordSubmitEyebrow: 'Submit a record', recordSubmitTitle: 'Propose a problem, project, institution, or resource.', recordSubmitText: 'Submissions are reviewed privately before being added to the approved public dataset.', recordSubmitCta: 'Submit a record',
     submitEyebrow: 'Propose a talk', submitTitle: 'Share research, an idea, or a topic.', submitText: 'Use the form to propose a talk or research topic for a future activity.', submitCta: 'Submit proposal',
     contactTitle: 'Contact', footerNavigate: 'Explore', footerText: 'An open network for science related to Bolivia.', footerRights: 'All rights reserved.',
+    loginNav: 'Sign In', loginTitle: 'Network Sign In', loginSubtitle: 'Sign in to manage your researcher profile and contributions.', emailLabel: 'Email address', passwordLabel: 'Password', loginButton: 'Sign In', loginWithGoogle: 'Continue with Google', noAccountPrompt: "Don't have an account?", registerHere: 'Sign up here', forgotPasswordPrompt: 'Forgot your password?',
+    registerTitle: 'Researcher Registration', registerSubtitle: 'Create your account to become part of the scientific community directory.', fullNameLabel: 'Full Name', confirmPasswordLabel: 'Confirm Password', registerButton: 'Create Account', haveAccountPrompt: 'Already have an account?', loginHere: 'Sign in here',
+    resetTitle: 'Reset Password', resetSubtitle: 'Enter your email to receive password reset instructions.', resetButton: 'Send reset link', backToLogin: 'Back to sign in', resetSentSuccess: 'If the email is registered, you will receive a reset link shortly.', passwordsDontMatch: 'Passwords do not match.', authErrorGeneric: 'An authentication error occurred. Please try again.', logoutButton: 'Sign Out', myProfileNav: 'My Profile',
   },
 };
 
