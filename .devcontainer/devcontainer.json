@@ -1,16 +1,20 @@
 {
-  "name": "Red Científica Boliviana (DevContainer)",
+  "name": "Red Científica Boliviana (DevContainer + DB)",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
   "features": {
     "ghcr.io/devcontainers/features/python:1": {
       "version": "3.11"
     }
   },
-  "forwardPorts": [3000],
+  "forwardPorts": [3000, 5432],
   "portsAttributes": {
     "3000": {
       "label": "Next.js Preview",
       "onAutoForward": "openBrowser"
+    },
+    "5432": {
+      "label": "PostgreSQL Database",
+      "onAutoForward": "silent"
     }
   },
   "customizations": {
@@ -28,11 +32,12 @@
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
         "ms-python.python",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "cweijan.vscode-postgresql-client2"
       ]
     }
   },
-  "postCreateCommand": "npm install",
-  "postStartCommand": "echo 'Ambiente listo. Ejecuta npm run dev para iniciar las pruebas.'",
+  "postCreateCommand": "npm install && bash scripts/setup_codespace_db.sh",
+  "postStartCommand": "sudo service postgresql start && echo 'PostgreSQL y ambiente listos. Ejecuta npm run dev para iniciar las pruebas.'",
   "remoteUser": "node"
 }
