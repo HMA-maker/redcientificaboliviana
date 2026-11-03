@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { LanguageProvider } from '@/context/LanguageContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { AuthModal } from '@/components/AuthModal';
+import { ProfileModal } from '@/components/ProfileModal';
 
 export const metadata: Metadata = {
   title: 'Red Científica Boliviana',
@@ -24,6 +25,7 @@ export default function RootLayout({
           <AuthProvider>
             {children}
             <AuthModal />
+            <ProfileModal />
           </AuthProvider>
         </LanguageProvider>
       </body>

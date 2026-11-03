@@ -16,8 +16,11 @@ interface AuthContextType {
   user: UserSession | null;
   loading: boolean;
   authModalView: AuthModalView;
+  isProfileOpen: boolean;
   openAuthModal: (view: AuthModalView) => void;
   closeAuthModal: () => void;
+  openProfileModal: () => void;
+  closeProfileModal: () => void;
   signInWithEmail: (email: string, pass: string) => Promise<{ error?: string }>;
   signUpWithEmail: (email: string, pass: string, fullName: string) => Promise<{ error?: string }>;
   signInWithGoogle: () => Promise<{ error?: string }>;
@@ -29,8 +32,11 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: false,
   authModalView: null,
+  isProfileOpen: false,
   openAuthModal: () => {},
   closeAuthModal: () => {},
+  openProfileModal: () => {},
+  closeProfileModal: () => {},
   signInWithEmail: async () => ({}),
   signUpWithEmail: async () => ({}),
   signInWithGoogle: async () => ({}),
@@ -42,6 +48,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<UserSession | null>(null);
   const [loading, setLoading] = useState(true);
   const [authModalView, setAuthModalView] = useState<AuthModalView>(null);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   useEffect(() => {
     // 1. Si Supabase está configurado en la nube
@@ -88,6 +95,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const openAuthModal = (view: AuthModalView) => setAuthModalView(view);
   const closeAuthModal = () => setAuthModalView(null);
+  const openProfileModal = () => setIsProfileOpen(true);
+  const closeProfileModal = () => setIsProfileOpen(false);
 
   const signInWithEmail = async (email: string, pass: string): Promise<{ error?: string }> => {
     if (isSupabaseConfigured) {
@@ -186,8 +195,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         user,
         loading,
         authModalView,
+        isProfileOpen,
         openAuthModal,
         closeAuthModal,
+        openProfileModal,
+        closeProfileModal,
         signInWithEmail,
         signUpWithEmail,
         signInWithGoogle,

@@ -119,6 +119,49 @@ export interface SiteContent {
   authErrorGeneric: string;
   logoutButton: string;
   myProfileNav: string;
+  profileModalTitle: string;
+  profileModalSubtitle: string;
+  profileTabPersonal: string;
+  profileTabAffiliation: string;
+  profileTabAcademic: string;
+  profileTabLinks: string;
+  profileFullNameLabel: string;
+  profileTitleLabel: string;
+  profileTitlePlaceholder: string;
+  profileInstitutionLabel: string;
+  profileInstitutionPlaceholder: string;
+  profileDepartmentLabel: string;
+  profileDepartmentPlaceholder: string;
+  profileCityLabel: string;
+  profileCityPlaceholder: string;
+  profileCountryLabel: string;
+  profileBioEsLabel: string;
+  profileBioEnLabel: string;
+  profileBioPlaceholder: string;
+  profileDisciplinesLabel: string;
+  profileDisciplinesHint: string;
+  profileResearchAreasLabel: string;
+  profileResearchAreasHint: string;
+  profileResearchAreasPlaceholder: string;
+  profileOrcidLabel: string;
+  profileOrcidPlaceholder: string;
+  profileScholarLabel: string;
+  profileScholarPlaceholder: string;
+  profileWebsiteLabel: string;
+  profileWebsitePlaceholder: string;
+  profileAvatarLabel: string;
+  profileAvatarPlaceholder: string;
+  profilePublicConsentLabel: string;
+  profilePublicConsentDesc: string;
+  profileModerationStatusLabel: string;
+  profileStatusPending: string;
+  profileStatusApproved: string;
+  profileStatusRejected: string;
+  profileStatusArchived: string;
+  profileSaveButton: string;
+  profileSavingButton: string;
+  profileSaveSuccess: string;
+  profileSaveError: string;
 }
 
 export const SITE_CONFIG = {
@@ -153,6 +196,49 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     loginNav: 'Ingresar', loginTitle: 'Acceso a la Red', loginSubtitle: 'Ingresa para administrar tu perfil de investigación y contribuciones.', emailLabel: 'Correo electrónico', passwordLabel: 'Contraseña', loginButton: 'Iniciar Sesión', loginWithGoogle: 'Continuar con Google', noAccountPrompt: '¿Aún no tienes cuenta?', registerHere: 'Regístrate aquí', forgotPasswordPrompt: '¿Olvidaste tu contraseña?',
     registerTitle: 'Registro de Investigador', registerSubtitle: 'Crea tu cuenta para formar parte del directorio de la comunidad científica.', fullNameLabel: 'Nombre y Apellidos', confirmPasswordLabel: 'Confirmar Contraseña', registerButton: 'Crear Cuenta', haveAccountPrompt: '¿Ya tienes una cuenta?', loginHere: 'Inicia sesión aquí',
     resetTitle: 'Recuperar Contraseña', resetSubtitle: 'Ingresa tu correo para recibir las instrucciones de restablecimiento.', resetButton: 'Enviar enlace', backToLogin: 'Volver al inicio de sesión', resetSentSuccess: 'Si el correo está registrado, recibirás un enlace de recuperación en breve.', passwordsDontMatch: 'Las contraseñas no coinciden.', authErrorGeneric: 'Ocurrió un error en la autenticación. Por favor intenta nuevamente.', logoutButton: 'Cerrar Sesión', myProfileNav: 'Mi Perfil',
+    profileModalTitle: 'Perfil de Investigador',
+    profileModalSubtitle: 'Administra tus datos académicos, áreas de investigación y visibilidad en la Red Científica Boliviana.',
+    profileTabPersonal: 'Datos Personales',
+    profileTabAffiliation: 'Filiación y Ubicación',
+    profileTabAcademic: 'Investigación',
+    profileTabLinks: 'Enlaces y Visibilidad',
+    profileFullNameLabel: 'Nombre y Apellidos completos',
+    profileTitleLabel: 'Título profesional / Cargo',
+    profileTitlePlaceholder: 'Ej. PhD en Biología Molecular, Investigador Asociado...',
+    profileInstitutionLabel: 'Institución de afiliación principal',
+    profileInstitutionPlaceholder: 'Ej. Universidad Mayor de San Simón (UMSS)',
+    profileDepartmentLabel: 'Departamento en Bolivia',
+    profileDepartmentPlaceholder: 'Selecciona un departamento o exterior',
+    profileCityLabel: 'Ciudad / Localidad',
+    profileCityPlaceholder: 'Ej. Cochabamba, La Paz, Barcelona...',
+    profileCountryLabel: 'País de residencia',
+    profileBioEsLabel: 'Biografía académica (Español)',
+    profileBioEnLabel: 'Biografía académica (Inglés)',
+    profileBioPlaceholder: 'Describe tu trayectoria científica, líneas de trabajo y contribuciones principales...',
+    profileDisciplinesLabel: 'Disciplinas científicas',
+    profileDisciplinesHint: 'Selecciona una o más disciplinas principales:',
+    profileResearchAreasLabel: 'Áreas específicas de investigación',
+    profileResearchAreasHint: 'Escribe un área y presiona Enter o separa por comas.',
+    profileResearchAreasPlaceholder: 'Ej. Nanotecnología, Epidemiología, Inteligencia Artificial...',
+    profileOrcidLabel: 'ID o URL de ORCID',
+    profileOrcidPlaceholder: 'https://orcid.org/0000-0000-0000-0000',
+    profileScholarLabel: 'URL de Google Scholar',
+    profileScholarPlaceholder: 'https://scholar.google.com/citations?user=...',
+    profileWebsiteLabel: 'Sitio Web personal o de laboratorio',
+    profileWebsitePlaceholder: 'https://...',
+    profileAvatarLabel: 'URL de imagen de perfil / Avatar',
+    profileAvatarPlaceholder: 'https://... (enlace a tu fotografía)',
+    profilePublicConsentLabel: 'Hacer público mi perfil en el Directorio',
+    profilePublicConsentDesc: 'Al activar esta casilla, autorizas que tus datos profesionales revisados sean visibles públicamente en la plataforma.',
+    profileModerationStatusLabel: 'Estado de verificación:',
+    profileStatusPending: 'Pendiente de revisión',
+    profileStatusApproved: 'Aprobado y publicado',
+    profileStatusRejected: 'Requiere ajustes',
+    profileStatusArchived: 'Archivado',
+    profileSaveButton: 'Guardar Cambios',
+    profileSavingButton: 'Guardando...',
+    profileSaveSuccess: '¡Perfil actualizado con éxito!',
+    profileSaveError: 'No se pudo guardar el perfil. Por favor intenta nuevamente.',
   },
   en: {
     metaDescription: 'Red Científica Boliviana: an open network connecting people interested in science and research related to Bolivia.',
@@ -176,6 +262,49 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     loginNav: 'Sign In', loginTitle: 'Network Sign In', loginSubtitle: 'Sign in to manage your researcher profile and contributions.', emailLabel: 'Email address', passwordLabel: 'Password', loginButton: 'Sign In', loginWithGoogle: 'Continue with Google', noAccountPrompt: "Don't have an account?", registerHere: 'Sign up here', forgotPasswordPrompt: 'Forgot your password?',
     registerTitle: 'Researcher Registration', registerSubtitle: 'Create your account to become part of the scientific community directory.', fullNameLabel: 'Full Name', confirmPasswordLabel: 'Confirm Password', registerButton: 'Create Account', haveAccountPrompt: 'Already have an account?', loginHere: 'Sign in here',
     resetTitle: 'Reset Password', resetSubtitle: 'Enter your email to receive password reset instructions.', resetButton: 'Send reset link', backToLogin: 'Back to sign in', resetSentSuccess: 'If the email is registered, you will receive a reset link shortly.', passwordsDontMatch: 'Passwords do not match.', authErrorGeneric: 'An authentication error occurred. Please try again.', logoutButton: 'Sign Out', myProfileNav: 'My Profile',
+    profileModalTitle: 'Researcher Profile',
+    profileModalSubtitle: 'Manage your academic credentials, research areas, and visibility on Red Científica Boliviana.',
+    profileTabPersonal: 'Personal Info',
+    profileTabAffiliation: 'Affiliation & Location',
+    profileTabAcademic: 'Research',
+    profileTabLinks: 'Links & Visibility',
+    profileFullNameLabel: 'Full Name',
+    profileTitleLabel: 'Professional Title / Role',
+    profileTitlePlaceholder: 'E.g. PhD in Molecular Biology, Research Associate...',
+    profileInstitutionLabel: 'Main Affiliated Institution',
+    profileInstitutionPlaceholder: 'E.g. Universidad Mayor de San Simón (UMSS)',
+    profileDepartmentLabel: 'Department in Bolivia',
+    profileDepartmentPlaceholder: 'Select department or abroad',
+    profileCityLabel: 'City / Locality',
+    profileCityPlaceholder: 'E.g. Cochabamba, La Paz, Barcelona...',
+    profileCountryLabel: 'Country of Residence',
+    profileBioEsLabel: 'Academic Bio (Spanish)',
+    profileBioEnLabel: 'Academic Bio (English)',
+    profileBioPlaceholder: 'Describe your scientific trajectory, research lines, and key contributions...',
+    profileDisciplinesLabel: 'Scientific Disciplines',
+    profileDisciplinesHint: 'Select one or more primary disciplines:',
+    profileResearchAreasLabel: 'Specific Research Areas',
+    profileResearchAreasHint: 'Type an area and press Enter or separate with commas.',
+    profileResearchAreasPlaceholder: 'E.g. Nanotechnology, Epidemiology, Artificial Intelligence...',
+    profileOrcidLabel: 'ORCID ID or URL',
+    profileOrcidPlaceholder: 'https://orcid.org/0000-0000-0000-0000',
+    profileScholarLabel: 'Google Scholar URL',
+    profileScholarPlaceholder: 'https://scholar.google.com/citations?user=...',
+    profileWebsiteLabel: 'Personal or Lab Website',
+    profileWebsitePlaceholder: 'https://...',
+    profileAvatarLabel: 'Profile Picture / Avatar URL',
+    profileAvatarPlaceholder: 'https://... (link to your photo)',
+    profilePublicConsentLabel: 'Make my profile public in the Directory',
+    profilePublicConsentDesc: 'By checking this box, you authorize your verified professional details to be publicly visible on the platform.',
+    profileModerationStatusLabel: 'Verification Status:',
+    profileStatusPending: 'Pending review',
+    profileStatusApproved: 'Approved and published',
+    profileStatusRejected: 'Requires revisions',
+    profileStatusArchived: 'Archived',
+    profileSaveButton: 'Save Changes',
+    profileSavingButton: 'Saving...',
+    profileSaveSuccess: 'Profile updated successfully!',
+    profileSaveError: 'Failed to save profile. Please try again.',
   },
 };
 

@@ -7,7 +7,7 @@ import { Menu, X, LogIn, User, LogOut } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
   const { language, setLanguage, content } = useLanguage();
-  const { user, openAuthModal, signOut } = useAuth();
+  const { user, openAuthModal, openProfileModal, signOut } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
@@ -62,11 +62,22 @@ export const Navbar: React.FC = () => {
               </button>
 
               {userDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white border border-line rounded-xl shadow-xl py-2 z-50">
+                <div className="absolute right-0 mt-2 w-52 bg-white border border-line rounded-xl shadow-xl py-2 z-50">
                   <div className="px-4 py-2 border-b border-line">
                     <p className="text-xs font-bold text-ink truncate">{user.fullName}</p>
                     <p className="text-[11px] text-muted truncate">{user.email}</p>
                   </div>
+                  <button
+                    onClick={() => {
+                      setUserDropdownOpen(false);
+                      openProfileModal();
+                    }}
+                    className="w-full px-4 py-2 text-left text-xs text-ink hover:bg-paper hover:text-blue flex items-center gap-2 font-semibold transition-colors"
+                  >
+                    <User className="w-3.5 h-3.5 text-blue" />
+                    <span>{content.myProfileNav}</span>
+                  </button>
+                  <div className="border-t border-line my-1"></div>
                   <button
                     onClick={() => {
                       setUserDropdownOpen(false);
@@ -149,6 +160,16 @@ export const Navbar: React.FC = () => {
                   <p className="text-xs font-bold text-ink">{user.fullName}</p>
                   <p className="text-[11px] text-muted">{user.email}</p>
                 </div>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openProfileModal();
+                  }}
+                  className="w-full text-left py-2 px-3 text-xs text-ink hover:text-blue font-bold flex items-center gap-2 hover:bg-paper rounded-md"
+                >
+                  <User className="w-4 h-4 text-blue" />
+                  <span>{content.myProfileNav}</span>
+                </button>
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
