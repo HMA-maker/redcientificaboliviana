@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import recordsData from '@/data/published-records.json';
-import { Search, Filter, ExternalLink, MapPin, Building2, User, HelpCircle, FolderKanban, BookMarked } from 'lucide-react';
+import { Search, Filter, ExternalLink, MapPin, Building2, User, HelpCircle, FolderKanban, BookMarked, Eye } from 'lucide-react';
+import { PublicProfileModal } from '@/components/PublicProfileModal';
 
 interface RecordItem {
   record_id: string;
@@ -33,6 +34,22 @@ export const Directory: React.FC = () => {
   const { language, content } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('all');
+  const [selectedProfileId, setSelectedProfileId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#investigador=')) {
+        const id = decodeURIComponent(hash.replace('#investigador=', ''));
+        if (id) {
+          setSelectedProfileId(id);
+        }
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   const records = (recordsData.records || []) as RecordItem[];
 
@@ -173,22 +190,35 @@ export const Directory: React.FC = () => {
                     )}
                   </div>
 
-                  {/* External links */}
-                  <div className="flex items-center gap-3 pt-4 border-t border-line text-xs font-semibold text-blue">
-                    {rec.orcid_url && (
-                      <a href={rec.orcid_url} target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-1">
-                        ORCID <ExternalLink className="w-3 h-3" />
-                      </a>
-                    )}
-                    {rec.google_scholar_url && (
-                      <a href={rec.google_scholar_url} target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-1">
-                        Scholar <ExternalLink className="w-3 h-3" />
-                      </a>
-                    )}
-                    {rec.website_url && (
-                      <a href={rec.website_url} target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-1">
-                        Web <ExternalLink className="w-3 h-3" />
-                      </a>
+                  {/* Links & Profile Action */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-line text-xs font-semibold text-blue">
+                    <div className="flex items-center gap-3">
+                      {rec.orcid_url && (
+                        <a href={rec.orcid_url} target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-1">
+                          ORCID <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                      {rec.google_scholar_url && (
+                        <a href={rec.google_scholar_url} target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-1">
+                          Scholar <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                      {rec.website_url && (
+                        <a href={rec.website_url} target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center gap-1">
+                          Web <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+                    </div>
+
+                    {rec.record_type === 'person' && (
+                      <button
+                        type="button"
+                        onClick={() => setSelectedProfileId(rec.record_id)}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue text-white hover:bg-blue-dark font-bold text-xs transition-colors shadow-xs ml-auto"
+                      >
+                        <User className="w-3.5 h-3.5" />
+                        <span>{content.viewPublicProfile}</span>
+                      </button>
                     )}
                   </div>
                 </div>
@@ -196,6 +226,16 @@ export const Directory: React.FC = () => {
             })}
           </div>
         )}
+
+        <PublicProfileModal
+          profileId={selectedProfileId}
+          onClose={() => {
+            setSelectedProfileId(null);
+            if (window.location.hash.startsWith('#investigador=')) {
+              window.history.replaceState(null, '', window.location.pathname);
+            }
+          }}
+        />
       </div>
     </section>
   );

@@ -5,6 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { supabase, isSupabaseConfigured } from '@/lib/supabaseClient';
 import { Profile, ModerationStatus } from '@/types/database';
+import { PublicProfileModal } from '@/components/PublicProfileModal';
 import {
   X,
   User,
@@ -53,6 +54,7 @@ export const ProfileModal: React.FC = () => {
   const [saving, setSaving] = useState(false);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [showPreview, setShowPreview] = useState(false);
 
   // Form State
   const [fullName, setFullName] = useState('');
@@ -302,13 +304,23 @@ export const ProfileModal: React.FC = () => {
               {content.profileModalSubtitle}
             </p>
           </div>
-          <button
-            onClick={closeProfileModal}
-            className="p-1.5 rounded-lg text-muted hover:text-ink hover:bg-slate-200 transition-colors"
-            aria-label="Cerrar modal"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setShowPreview(true)}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-line bg-white hover:bg-slate-100 text-xs font-bold text-ink transition-colors shadow-xs"
+            >
+              <Eye className="w-3.5 h-3.5 text-blue" />
+              <span>{content.viewPublicProfile}</span>
+            </button>
+            <button
+              onClick={closeProfileModal}
+              className="p-1.5 rounded-lg text-muted hover:text-ink hover:bg-slate-200 transition-colors"
+              aria-label="Cerrar modal"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
 
         {/* Tab Navigation */}
@@ -730,6 +742,13 @@ export const ProfileModal: React.FC = () => {
           </div>
         </form>
       </div>
+
+      {showPreview && (
+        <PublicProfileModal
+          profileId={user.id}
+          onClose={() => setShowPreview(false)}
+        />
+      )}
     </div>
   );
 };

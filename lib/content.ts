@@ -162,6 +162,17 @@ export interface SiteContent {
   profileSavingButton: string;
   profileSaveSuccess: string;
   profileSaveError: string;
+  publicProfileTitle: string;
+  publicProfileBadge: string;
+  publicProfileBio: string;
+  publicProfileDisciplines: string;
+  publicProfileAreas: string;
+  publicProfileLinks: string;
+  publicProfileShare: string;
+  publicProfileShareCopied: string;
+  publicProfileContactCta: string;
+  publicProfileClose: string;
+  viewPublicProfile: string;
 }
 
 export const SITE_CONFIG = {
@@ -239,6 +250,17 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     profileSavingButton: 'Guardando...',
     profileSaveSuccess: '¡Perfil actualizado con éxito!',
     profileSaveError: 'No se pudo guardar el perfil. Por favor intenta nuevamente.',
+    publicProfileTitle: 'Perfil del Investigador',
+    publicProfileBadge: 'Investigador Verificado',
+    publicProfileBio: 'Biografía Académica',
+    publicProfileDisciplines: 'Disciplinas Científicas',
+    publicProfileAreas: 'Áreas de Especialidad',
+    publicProfileLinks: 'Perfiles y Enlaces Oficiales',
+    publicProfileShare: 'Compartir Perfil',
+    publicProfileShareCopied: '¡Enlace copiado al portapapeles!',
+    publicProfileContactCta: '¿Te interesa colaborar o invitar a este investigador a una actividad?',
+    publicProfileClose: 'Cerrar',
+    viewPublicProfile: 'Ver perfil completo',
   },
   en: {
     metaDescription: 'Red Científica Boliviana: an open network connecting people interested in science and research related to Bolivia.',
@@ -305,6 +327,17 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     profileSavingButton: 'Saving...',
     profileSaveSuccess: 'Profile updated successfully!',
     profileSaveError: 'Failed to save profile. Please try again.',
+    publicProfileTitle: 'Researcher Profile',
+    publicProfileBadge: 'Verified Researcher',
+    publicProfileBio: 'Academic Biography',
+    publicProfileDisciplines: 'Scientific Disciplines',
+    publicProfileAreas: 'Specialization Areas',
+    publicProfileLinks: 'Official Profiles & Links',
+    publicProfileShare: 'Share Profile',
+    publicProfileShareCopied: 'Link copied to clipboard!',
+    publicProfileContactCta: 'Interested in collaborating or inviting this researcher to an event?',
+    publicProfileClose: 'Close',
+    viewPublicProfile: 'View full profile',
   },
 };
 
