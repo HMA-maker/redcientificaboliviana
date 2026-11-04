@@ -21,6 +21,7 @@ import {
 } from 'lucide-react';
 import { PublicProfileModal } from '@/components/PublicProfileModal';
 import { InstitutionModal } from '@/components/InstitutionModal';
+import { PublicInstitutionModal } from '@/components/PublicInstitutionModal';
 
 export interface RecordItem {
   record_id: string;
@@ -77,11 +78,12 @@ export const Directory: React.FC = () => {
   const [selectedDiscipline, setSelectedDiscipline] = useState('all');
   const [selectedDepartment, setSelectedDepartment] = useState('all');
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(null);
+  const [selectedInstitutionId, setSelectedInstitutionId] = useState<string | null>(null);
   const [dynamicProfiles, setDynamicProfiles] = useState<RecordItem[]>([]);
   const [loadingDynamic, setLoadingDynamic] = useState(false);
   const [isInstModalOpen, setIsInstModalOpen] = useState(false);
 
-  // Listen to deep links (#investigador=<id>)
+  // Listen to deep links (#investigador=<id>, #institucion=<id>)
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash;
@@ -89,6 +91,11 @@ export const Directory: React.FC = () => {
         const id = decodeURIComponent(hash.replace('#investigador=', ''));
         if (id) {
           setSelectedProfileId(id);
+        }
+      } else if (hash.startsWith('#institucion=')) {
+        const id = decodeURIComponent(hash.replace('#institucion=', ''));
+        if (id) {
+          setSelectedInstitutionId(id);
         }
       }
     };
@@ -714,6 +721,17 @@ export const Directory: React.FC = () => {
                         <span>{content.viewPublicProfile}</span>
                       </button>
                     )}
+
+                    {rec.record_type === 'institution' && (
+                      <button
+                        type="button"
+                        onClick={() => setSelectedInstitutionId(rec.record_id)}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue text-white hover:bg-blue-dark font-bold text-xs transition-colors shadow-xs ml-auto"
+                      >
+                        <Building2 className="w-3.5 h-3.5" />
+                        <span>{content.viewInstitutionProfile}</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               );
@@ -721,7 +739,7 @@ export const Directory: React.FC = () => {
           </div>
         )}
 
-        {/* Modal de Vista Pública Detallada */}
+        {/* Modal de Vista Pública Detallada de Investigador */}
         <PublicProfileModal
           profileId={selectedProfileId}
           onClose={() => {
@@ -729,6 +747,21 @@ export const Directory: React.FC = () => {
             if (window.location.hash.startsWith('#investigador=')) {
               window.history.replaceState(null, '', window.location.pathname);
             }
+          }}
+        />
+
+        {/* Modal de Vista Pública Detallada de Institución (PB-11) */}
+        <PublicInstitutionModal
+          institutionId={selectedInstitutionId}
+          onClose={() => {
+            setSelectedInstitutionId(null);
+            if (window.location.hash.startsWith('#institucion=')) {
+              window.history.replaceState(null, '', window.location.pathname);
+            }
+          }}
+          onSelectResearcher={(researcherId) => {
+            setSelectedInstitutionId(null);
+            setSelectedProfileId(researcherId);
           }}
         />
 

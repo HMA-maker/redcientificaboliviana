@@ -201,6 +201,16 @@ export interface SiteContent {
   institutionRegisterSuccess: string;
   institutionRegisterError: string;
   institutionCta: string;
+  publicInstitutionTitle: string;
+  publicInstitutionBadge: string;
+  publicInstitutionAbout: string;
+  publicInstitutionAffiliatedTitle: string;
+  publicInstitutionAffiliatedEmpty: string;
+  publicInstitutionWebsite: string;
+  publicInstitutionContact: string;
+  publicInstitutionShare: string;
+  publicInstitutionClose: string;
+  viewInstitutionProfile: string;
 }
 
 export const SITE_CONFIG = {
@@ -317,6 +327,16 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     institutionRegisterSuccess: '¡Institución enviada con éxito! Quedará visible tras la revisión de coordinación.',
     institutionRegisterError: 'Ocurrió un error al registrar la institución. Intenta nuevamente.',
     institutionCta: 'Registrar Institución Aliada',
+    publicInstitutionTitle: 'Perfil Institucional',
+    publicInstitutionBadge: 'Institución Vinculada',
+    publicInstitutionAbout: 'Acerca de la Institución',
+    publicInstitutionAffiliatedTitle: 'Investigadores Vinculados',
+    publicInstitutionAffiliatedEmpty: 'Aún no hay investigadores vinculados registrados para esta institución.',
+    publicInstitutionWebsite: 'Sitio Web Oficial',
+    publicInstitutionContact: 'Contacto Institucional',
+    publicInstitutionShare: 'Compartir Perfil Institucional',
+    publicInstitutionClose: 'Cerrar',
+    viewInstitutionProfile: 'Ver perfil institucional',
   },
   en: {
     metaDescription: 'Red Científica Boliviana: an open network connecting people interested in science and research related to Bolivia.',
@@ -422,6 +442,16 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     institutionRegisterSuccess: 'Institution submitted successfully! It will become visible following coordinator review.',
     institutionRegisterError: 'An error occurred while registering the institution. Please try again.',
     institutionCta: 'Register Partner Institution',
+    publicInstitutionTitle: 'Institutional Profile',
+    publicInstitutionBadge: 'Affiliated Institution',
+    publicInstitutionAbout: 'About the Institution',
+    publicInstitutionAffiliatedTitle: 'Affiliated Researchers',
+    publicInstitutionAffiliatedEmpty: 'No affiliated researchers registered for this institution yet.',
+    publicInstitutionWebsite: 'Official Website',
+    publicInstitutionContact: 'Institutional Contact',
+    publicInstitutionShare: 'Share Institutional Profile',
+    publicInstitutionClose: 'Close',
+    viewInstitutionProfile: 'View institution profile',
   },
 };
 
