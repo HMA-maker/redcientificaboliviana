@@ -173,6 +173,12 @@ export interface SiteContent {
   publicProfileContactCta: string;
   publicProfileClose: string;
   viewPublicProfile: string;
+  clearFilters: string;
+  showingResults: string;
+  allDisciplines: string;
+  allDepartments: string;
+  filterByDiscipline: string;
+  filterByDepartment: string;
 }
 
 export const SITE_CONFIG = {
@@ -261,6 +267,12 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     publicProfileContactCta: '¿Te interesa colaborar o invitar a este investigador a una actividad?',
     publicProfileClose: 'Cerrar',
     viewPublicProfile: 'Ver perfil completo',
+    clearFilters: 'Limpiar filtros',
+    showingResults: 'Mostrando',
+    allDisciplines: 'Todas las disciplinas',
+    allDepartments: 'Todos los departamentos',
+    filterByDiscipline: 'Disciplina',
+    filterByDepartment: 'Ubicación',
   },
   en: {
     metaDescription: 'Red Científica Boliviana: an open network connecting people interested in science and research related to Bolivia.',
@@ -338,6 +350,12 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     publicProfileContactCta: 'Interested in collaborating or inviting this researcher to an event?',
     publicProfileClose: 'Close',
     viewPublicProfile: 'View full profile',
+    clearFilters: 'Clear filters',
+    showingResults: 'Showing',
+    allDisciplines: 'All disciplines',
+    allDepartments: 'All departments',
+    filterByDiscipline: 'Discipline',
+    filterByDepartment: 'Location',
   },
 };
 
