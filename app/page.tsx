@@ -6,12 +6,13 @@ import { Activities } from '@/components/Activities';
 import { Directory } from '@/components/Directory';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 
 export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <Hero />
         <About />
         <Coordinators />
@@ -20,6 +21,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
