@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "build:data": "python3 scripts/build_published_data.py"
+    "build:data": "python3 scripts/build_published_data.py",
+    "db:setup": "bash scripts/setup_codespace_db.sh"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.118.0",
