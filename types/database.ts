@@ -24,15 +24,23 @@ export interface Profile {
   updated_at: string;
 }
 
+export type InstitutionType = 'universidad' | 'centro_investigacion' | 'laboratorio' | 'ong' | 'otra';
+
 export interface Institution {
   id: string;
   name: string;
-  type: 'universidad' | 'centro_investigacion' | 'laboratorio' | 'ong' | 'otra';
+  type: InstitutionType;
   department?: string;
+  city?: string;
   website_url?: string;
+  contact_email?: string;
   logo_url?: string;
-  moderation_status: 'pending' | 'approved' | 'rejected';
+  description_es?: string;
+  description_en?: string;
+  representative_id?: string;
+  moderation_status: ModerationStatus;
   created_at: string;
+  updated_at?: string;
 }
 
 export interface DatabaseActivity {

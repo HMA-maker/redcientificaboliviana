@@ -179,6 +179,28 @@ export interface SiteContent {
   allDepartments: string;
   filterByDiscipline: string;
   filterByDepartment: string;
+  institutionModalTitle: string;
+  institutionModalSubtitle: string;
+  institutionNameLabel: string;
+  institutionNamePlaceholder: string;
+  institutionTypeLabel: string;
+  institutionDeptLabel: string;
+  institutionCityLabel: string;
+  institutionCityPlaceholder: string;
+  institutionWebsiteLabel: string;
+  institutionWebsitePlaceholder: string;
+  institutionEmailLabel: string;
+  institutionEmailPlaceholder: string;
+  institutionLogoLabel: string;
+  institutionLogoPlaceholder: string;
+  institutionDescEsLabel: string;
+  institutionDescEnLabel: string;
+  institutionDescPlaceholder: string;
+  institutionRegisterButton: string;
+  institutionRegistering: string;
+  institutionRegisterSuccess: string;
+  institutionRegisterError: string;
+  institutionCta: string;
 }
 
 export const SITE_CONFIG = {
@@ -273,6 +295,28 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     allDepartments: 'Todos los departamentos',
     filterByDiscipline: 'Disciplina',
     filterByDepartment: 'Ubicación',
+    institutionModalTitle: 'Registro y Administración de Institución',
+    institutionModalSubtitle: 'Vincula una universidad, centro de investigación o laboratorio a la Red Científica Boliviana.',
+    institutionNameLabel: 'Nombre oficial de la Institución',
+    institutionNamePlaceholder: 'Ej. Universidad Mayor de San Simón (UMSS)',
+    institutionTypeLabel: 'Tipo de Entidad',
+    institutionDeptLabel: 'Departamento en Bolivia',
+    institutionCityLabel: 'Ciudad / Sede',
+    institutionCityPlaceholder: 'Ej. Cochabamba, La Paz...',
+    institutionWebsiteLabel: 'Sitio Web oficial',
+    institutionWebsitePlaceholder: 'https://...',
+    institutionEmailLabel: 'Correo de contacto / enlace institucional',
+    institutionEmailPlaceholder: 'contacto@institucion.edu.bo',
+    institutionLogoLabel: 'URL del Logotipo oficial',
+    institutionLogoPlaceholder: 'https://... (enlace al logo de la institución)',
+    institutionDescEsLabel: 'Descripción y líneas de investigación (Español)',
+    institutionDescEnLabel: 'Descripción y líneas de investigación (Inglés)',
+    institutionDescPlaceholder: 'Describe la misión científica, centros adscritos o áreas prioritarias de investigación...',
+    institutionRegisterButton: 'Registrar Institución',
+    institutionRegistering: 'Guardando registro...',
+    institutionRegisterSuccess: '¡Institución enviada con éxito! Quedará visible tras la revisión de coordinación.',
+    institutionRegisterError: 'Ocurrió un error al registrar la institución. Intenta nuevamente.',
+    institutionCta: 'Registrar Institución Aliada',
   },
   en: {
     metaDescription: 'Red Científica Boliviana: an open network connecting people interested in science and research related to Bolivia.',
@@ -356,6 +400,28 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     allDepartments: 'All departments',
     filterByDiscipline: 'Discipline',
     filterByDepartment: 'Location',
+    institutionModalTitle: 'Institution Registration & Administration',
+    institutionModalSubtitle: 'Link a university, research center or laboratory to Red Científica Boliviana.',
+    institutionNameLabel: 'Official Institution Name',
+    institutionNamePlaceholder: 'E.g. Universidad Mayor de San Simón (UMSS)',
+    institutionTypeLabel: 'Entity Type',
+    institutionDeptLabel: 'Department in Bolivia',
+    institutionCityLabel: 'City / Headquarters',
+    institutionCityPlaceholder: 'E.g. Cochabamba, La Paz...',
+    institutionWebsiteLabel: 'Official Website',
+    institutionWebsitePlaceholder: 'https://...',
+    institutionEmailLabel: 'Contact Email / Institutional Liaison',
+    institutionEmailPlaceholder: 'contact@institution.edu.bo',
+    institutionLogoLabel: 'Official Logo URL',
+    institutionLogoPlaceholder: 'https://... (link to institution logo)',
+    institutionDescEsLabel: 'Description and Research Lines (Spanish)',
+    institutionDescEnLabel: 'Description and Research Lines (English)',
+    institutionDescPlaceholder: 'Describe the scientific mission, research centers or priority research areas...',
+    institutionRegisterButton: 'Register Institution',
+    institutionRegistering: 'Saving record...',
+    institutionRegisterSuccess: 'Institution submitted successfully! It will become visible following coordinator review.',
+    institutionRegisterError: 'An error occurred while registering the institution. Please try again.',
+    institutionCta: 'Register Partner Institution',
   },
 };
 

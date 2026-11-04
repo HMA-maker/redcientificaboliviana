@@ -20,6 +20,7 @@ import {
   Tag
 } from 'lucide-react';
 import { PublicProfileModal } from '@/components/PublicProfileModal';
+import { InstitutionModal } from '@/components/InstitutionModal';
 
 export interface RecordItem {
   record_id: string;
@@ -78,6 +79,7 @@ export const Directory: React.FC = () => {
   const [selectedProfileId, setSelectedProfileId] = useState<string | null>(null);
   const [dynamicProfiles, setDynamicProfiles] = useState<RecordItem[]>([]);
   const [loadingDynamic, setLoadingDynamic] = useState(false);
+  const [isInstModalOpen, setIsInstModalOpen] = useState(false);
 
   // Listen to deep links (#investigador=<id>)
   useEffect(() => {
@@ -138,6 +140,34 @@ export const Directory: React.FC = () => {
               });
             });
           }
+
+          // Consultar instituciones en Supabase
+          const { data: instData } = await supabase
+            .from('institutions')
+            .select('*')
+            .eq('moderation_status', 'approved');
+
+          if (instData) {
+            instData.forEach((inst: any) => {
+              loadedItems.push({
+                record_id: inst.id,
+                record_type: 'institution',
+                name: inst.name,
+                title_es: inst.name,
+                title_en: inst.name,
+                summary_es: inst.description_es,
+                summary_en: inst.description_en,
+                institution: inst.name,
+                department: inst.department,
+                city_region: inst.city,
+                country: 'Bolivia',
+                public_location_label_es: [inst.city, inst.department, 'Bolivia'].filter(Boolean).join(', '),
+                public_location_label_en: [inst.city, inst.department, 'Bolivia'].filter(Boolean).join(', '),
+                avatar_url: inst.logo_url,
+                website_url: inst.website_url,
+              });
+            });
+          }
         } else {
           // Escanear localStorage en modo demostración local
           for (let i = 0; i < localStorage.length; i++) {
@@ -176,6 +206,33 @@ export const Directory: React.FC = () => {
                 console.warn('Error parsing local mock profile:', e);
               }
             }
+          }
+
+          // Escanear instituciones locales en Codespaces
+          const localInstStr = localStorage.getItem('rcb_institutions') || '[]';
+          try {
+            const localInstList = JSON.parse(localInstStr);
+            localInstList.forEach((inst: any) => {
+              loadedItems.push({
+                record_id: inst.id || `inst-${Date.now()}`,
+                record_type: 'institution',
+                name: inst.name,
+                title_es: inst.name,
+                title_en: inst.name,
+                summary_es: inst.description_es,
+                summary_en: inst.description_en,
+                institution: inst.name,
+                department: inst.department,
+                city_region: inst.city,
+                country: 'Bolivia',
+                public_location_label_es: [inst.city, inst.department, 'Bolivia'].filter(Boolean).join(', '),
+                public_location_label_en: [inst.city, inst.department, 'Bolivia'].filter(Boolean).join(', '),
+                avatar_url: inst.logo_url,
+                website_url: inst.website_url,
+              });
+            });
+          } catch (e) {
+            console.warn('Error parsing local institutions:', e);
           }
         }
       } catch (err) {
@@ -385,6 +442,15 @@ export const Directory: React.FC = () => {
             <FolderKanban className="w-3.5 h-3.5" />
             <span>{content.project}</span>
             <span className="opacity-80">({typeCounts.project})</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setIsInstModalOpen(true)}
+            className="px-3.5 py-1.5 rounded-full text-xs font-bold border border-blue/40 bg-blue/5 text-blue hover:bg-blue hover:text-white flex items-center gap-1.5 transition-all shadow-xs"
+          >
+            <Building2 className="w-3.5 h-3.5" />
+            <span>+ {content.institutionCta}</span>
           </button>
         </div>
 
@@ -664,6 +730,12 @@ export const Directory: React.FC = () => {
               window.history.replaceState(null, '', window.location.pathname);
             }
           }}
+        />
+
+        {/* Modal de Registro de Institución (PB-10) */}
+        <InstitutionModal
+          isOpen={isInstModalOpen}
+          onClose={() => setIsInstModalOpen(false)}
         />
       </div>
     </section>
