@@ -1,17 +1,15 @@
 {
-  "dataset_notice": "Synthetic demonstration data only. Do not replace with raw form responses.",
+  "dataset_notice": "Approved public records only. Private intake fields are excluded.",
   "records": [
     {
-      "record_id": "person-0001",
+      "record_id": "person-801485c2-623b-4af1-9905-f7fe94d4e4a2",
       "record_type": "person",
-      "name": "Julio Chávez",
-      "title_es": "Perfil de investigación",
-      "title_en": "Research profile",
-      "summary_es": "Investigación sobre el transporte de partículas en flujos turbulentos y problemas ambientales.",
-      "summary_en": "Research on particle transport in turbulent flows and environmental problems.",
+      "name": "Julio Chavez",
+      "title_es": "Estudiante de doctorado",
+      "summary_es": "Mecánica de Fluidos; Turbulencia; Estadística; Experimentos; Análisis teórico; Computación científica",
       "biography_es": "Julio Chávez es investigador en mecánica de fluidos especializado en el transporte de partículas en flujos turbulentos. Su trabajo combina experimentos y análisis numérico para estudiar sistemas complejos. Su investigación busca conectar la dinámica de fluidos fundamental con problemas ambientales de interés científico y social.",
-      "biography_en": "Julio Chávez is a fluid mechanics researcher specializing in particle transport in turbulent flows. His work combines experiments and numerical analysis to study complex systems. His research seeks to connect fundamental fluid dynamics with environmental problems of scientific and social relevance.",
-      "institution": "Universidad de Washington",
+      "institution": "University of Washington",
+      "role_es": "Científico o científica; Investigador o investigadora",
       "research_areas_es": [
         "Mecánica de Fluidos",
         "Turbulencia",
@@ -20,30 +18,32 @@
         "Análisis teórico",
         "Computación científica"
       ],
-      "research_areas_en": [
-        "Fluid mechanics",
-        "Turbulence",
-        "Statistics",
-        "Experiments",
-        "Theoretical analysis",
-        "Scientific computing"
-      ],
       "disciplines_es": [
-        "Ingenierías, tecnología e infraestructura"
+        "Cambio climático y medio ambiente"
       ],
-      "disciplines_en": [
-        "Engineering, technology and infrastructure"
-      ],
+      "theme_es": "Ingenierías, tecnología e infraestructura",
       "country": "España",
       "city_region": "Barcelona",
+      "connection_to_bolivia": [
+        "Soy boliviano o boliviana",
+        "Estoy interesado o interesada en realizar proyectos en Bolivia"
+      ],
+      "languages": "Español, Inglés, Francés",
+      "participation_interests_es": [
+        "Participar en proyectos de investigación",
+        "Proponer proyectos",
+        "Colaborar en investigaciones existentes",
+        "Participar en charlas o seminarios",
+        "Ofrecer mentoría",
+        "Apoyar actividades de divulgación científica"
+      ],
       "public_location_label_es": "Barcelona (España)",
-      "public_location_label_en": "Barcelona (Spain)",
-      "orcid_url": "https://orcid.org/0009-0001-9861-8890",
       "website_url": "https://julio-chavez.github.io/",
       "google_scholar_url": "https://scholar.google.com/citations?user=qpYRiaUAAAAJ&hl=en&oi=ao",
+      "photo_url": "assets/people/julio-chavez-profile.jpg",
       "map_visible": false,
       "published": true,
-      "publication_date": "2026-08-21"
+      "publication_date": "2026-10-30"
     },
     {
       "record_id": "institution-demo-001",

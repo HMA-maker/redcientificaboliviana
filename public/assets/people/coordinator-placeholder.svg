@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait placeholder</title>
+  <desc id="desc">A gender-neutral illustrated portrait placeholder for a network coordinator.</desc>
+  <rect width="600" height="450" fill="#edf2ee"/>
+  <circle cx="300" cy="210" r="174" fill="#dce7df"/>
+  <path d="M106 450c15-93 88-153 194-153s179 60 194 153" fill="#517b6b"/>
+  <path d="M260 304v-48h80v48l-40 34z" fill="#996b52"/>
+  <ellipse cx="300" cy="193" rx="91" ry="111" fill="#b98263"/>
+  <path d="M244 195h12m88 0h12" stroke="#35443e" stroke-linecap="round" stroke-width="8"/>
+  <path d="M278 244c14 8 30 8 44 0" fill="none" stroke="#805844" stroke-linecap="round" stroke-width="6"/>
+</svg>

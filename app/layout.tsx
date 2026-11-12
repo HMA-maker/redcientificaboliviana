@@ -24,9 +24,11 @@ export const metadata: Metadata = {
     'Universidades de Bolivia',
   ],
   authors: [
-    { name: 'Julio Chávez' },
-    { name: 'Kenji Shoji' },
-    { name: 'Natalia Machaca' },
+    { name: 'Julio Chávez, PhD' },
+    { name: 'Kenji Shoji, PhD' },
+    { name: 'Natalia Machaca, PhD' },
+    { name: 'Natalia Montellano, PhD' },
+    { name: 'Erna Jungstein, MSc' },
   ],
   creator: 'Red Científica Boliviana',
   publisher: 'Red Científica Boliviana',
@@ -74,9 +76,11 @@ const jsonLd = {
         name: 'Bolivia',
       },
       founder: [
-        { '@type': 'Person', name: 'Julio Chávez' },
-        { '@type': 'Person', name: 'Kenji Shoji' },
-        { '@type': 'Person', name: 'Natalia Machaca' },
+        { '@type': 'Person', name: 'Julio Chávez, PhD' },
+        { '@type': 'Person', name: 'Kenji Shoji, PhD' },
+        { '@type': 'Person', name: 'Natalia Machaca, PhD' },
+        { '@type': 'Person', name: 'Natalia Montellano, PhD' },
+        { '@type': 'Person', name: 'Erna Jungstein, MSc' },
       ],
     },
     {
@@ -98,12 +102,18 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-white text-ink antialiased">
+      <body className="min-h-screen flex flex-col bg-warm-white text-ink antialiased font-sans">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-blue focus:text-white focus:rounded-lg focus:shadow-xl focus:font-bold focus:outline-none focus:ring-2 focus:ring-white"

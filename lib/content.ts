@@ -216,6 +216,8 @@ export interface SiteContent {
 export const SITE_CONFIG = {
   contactEmail: 'redcientificaboliviana@gmail.com',
   talkFormUrl: 'https://forms.gle/9yzwQuFtNvyenh7y7',
+  profileEditorWebappUrl:
+    'https://script.google.com/macros/s/AKfycbxSDKfVQdHkJM0NZHeMaKJ1BVtx7J7rk1U8htf0cmd3DBphYrmFfW8lJHovCOLcYxzkcg/exec',
   forms: {
     join: { es: 'https://forms.gle/78z4KXUd22RLJPcg7', en: null },
     submit: { es: 'https://forms.gle/2RrBAQgNgHHPqehM6', en: null },
@@ -227,16 +229,22 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     metaDescription: 'Red Científica Boliviana: una red abierta para conectar a personas interesadas en la ciencia y la investigación relacionadas con Bolivia.',
     skipToContent: 'Saltar al contenido', openMenu: 'Abrir menú', closeMenu: 'Cerrar menú', mainNavigation: 'Navegación principal', languageLabel: 'Idioma',
     navHome: 'Inicio', navAbout: 'La red', navActivities: 'Actividades', navDirectory: 'Directorio', navMap: 'Mapa', navContact: 'Contacto',
-    heroEyebrow: 'Ciencia, colaboración y Bolivia', heroTitle: 'Conectamos a quienes hacen y acompañan la ciencia relacionada con Bolivia.', heroText: 'La Red Científica Boliviana es un espacio abierto para compartir conocimiento, impulsar conversaciones y acercar a personas interesadas en la investigación.', joinCta: 'Únete a la red', talkCta: 'Propón una charla',
-    aboutEyebrow: 'Sobre la red', aboutTitle: 'Un punto de encuentro para la investigación.', missionText: 'Nuestra misión es fortalecer los vínculos entre personas y comunidades que investigan, comunican o se interesan por temas científicos relacionados con Bolivia.', objectivesTitle: 'Objetivos', participateTitle: '¿Quiénes pueden participar?', participateText: 'Investigadores, estudiantes de posgrado, profesionales, instituciones y toda persona con interés en la ciencia y la investigación relacionadas con Bolivia.',
-    objectives: ['Facilitar el intercambio de conocimiento y experiencias.', 'Dar visibilidad a conversaciones sobre investigación relacionada con Bolivia.', 'Promover conexiones entre personas con intereses científicos afines.'],
-    activitiesEyebrow: 'Actividades', activitiesTitle: 'Conversaciones que acercan el conocimiento.',
-    activities: [{ title: 'Charlas científicas', text: 'Encuentros periódicos para conocer investigaciones, preguntas y perspectivas.' }, { title: 'Comunicación de la investigación', text: 'Espacios para compartir conocimiento científico de manera clara y accesible.' }, { title: 'Conexiones para colaborar', text: 'Oportunidades para acercar a personas interesadas en temas de investigación.' }],
-    activitiesListEyebrow: 'Programa', activitiesListTitle: 'Charlas, seminarios y encuentros de la red.', noActivitiesTitle: 'Aún no hay actividades publicadas.', noActivitiesText: 'Las próximas actividades y los materiales de sesiones anteriores se publicarán aquí.', upcoming: 'Próximas actividades', past: 'Actividades pasadas', recording: 'Grabación disponible', calendarPrevious: 'Mes anterior', calendarNext: 'Mes siguiente', calendarViewDetails: 'Ver detalles', calendarRegistration: 'Inscripción', calendarPast: 'Actividad pasada', calendarOnline: 'En línea', activityTypes: { seminar: 'Seminario', talk: 'Charla', workshop: 'Taller', meeting: 'Reunión', other: 'Otra actividad' },
-    coordinatorsEyebrow: 'La red', coordinatorsTitle: 'Coordinadores y fundadores', coordinatorsText: 'Personas que impulsan la Red Científica Boliviana.', coordinatorRole: 'Coordinador y fundador',
+    heroEyebrow: 'Ciencia, colaboración y Bolivia', heroTitle: 'Un mosaico de experiencias para enriquecer la ciencia boliviana.', heroText: 'Conectamos a investigadoras, investigadores, estudiantes e instituciones en Bolivia y en el mundo para colaborar en lo que el país necesita.', joinCta: 'Únete a la red', talkCta: 'Propón una charla',
+    aboutEyebrow: 'Quiénes somos', aboutTitle: 'Un punto de encuentro para la investigación.', missionText: 'La Red Científica Boliviana (RCB) es una plataforma de articulación científica que conecta a investigadores bolivianos, dentro y fuera del país, con científicos de instituciones de todo el mundo que investigan sobre Bolivia. Queremos visibilizar el potencial científico de Bolivia a nivel internacional y construir canales de colaboración estables.', objectivesTitle: 'Objetivos', participateTitle: '¿Quiénes pueden participar?', participateText: 'Investigadores, estudiantes de posgrado, profesionales, instituciones y toda persona con interés en la ciencia y la investigación relacionadas con Bolivia.',
+    objectives: [
+      'Articular una comunidad científica interdisciplinar que conecte a investigadores bolivianos con científicos de todo el mundo.',
+      'Reducir las barreras de acceso mediante una red de contactos, recursos compartidos y colaboración directa entre instituciones.',
+      'Organizar seminarios periódicos que difundan la investigación boliviana dentro y fuera del país y acercarla a la sociedad.',
+      'Posicionar a Bolivia como escenario de investigación de referencia en el espacio iberoamericano.',
+      'Generar un ecosistema de conocimiento para formar nuevos investigadores y transferir resultados a la sociedad.',
+    ],
+    activitiesEyebrow: 'Actividades y Seminarios', activitiesTitle: 'Conversaciones que acercan el conocimiento.',
+    activities: [{ title: 'Charlas científicas', text: 'Encuentros periódicos para conocer investigaciones, preguntas y perspectivas.' }, { title: 'Seminario mensual', text: 'Cada mes, una persona de la red presenta su investigación en línea y responde preguntas.' }, { title: 'Conexiones para colaborar', text: 'Oportunidades para acercar a personas e instituciones interesadas en investigar sobre Bolivia.' }],
+    activitiesListEyebrow: 'Calendario', activitiesListTitle: 'Próximas actividades confirmadas', noActivitiesTitle: 'Aún no hay actividades publicadas.', noActivitiesText: 'Consulta las próximas actividades confirmadas de la Red Científica Boliviana y participa en nuestros encuentros científicos y formativos.', upcoming: 'Próximas actividades', past: 'Seminarios anteriores', recording: 'Grabación disponible', calendarPrevious: 'Mes anterior', calendarNext: 'Mes siguiente', calendarViewDetails: 'Ver detalles', calendarRegistration: 'Inscripción', calendarPast: 'Actividad pasada', calendarOnline: 'En línea', activityTypes: { seminar: 'Seminario', talk: 'Charla', workshop: 'Taller', meeting: 'Encuentro', other: 'Otra actividad' },
+    coordinatorsEyebrow: 'La red', coordinatorsTitle: 'Coordinación y fundadores', coordinatorsText: 'Las personas que impulsan la red, de forma voluntaria, desde Bolivia y desde el exterior.', coordinatorRole: 'Coordinación y fundación',
     joinEyebrow: 'Únete', joinTitle: 'Sé parte de la conversación.', joinText: 'Comparte tu perfil para que el equipo pueda revisarlo de forma privada antes de cualquier publicación.', joinUnavailable: 'El formulario de adhesión estará disponible próximamente.',
     formSpanishNotice: 'Este formulario está disponible actualmente en español. Una versión en inglés estará disponible pronto.', formSpanishLink: 'Abrir formulario en español',
-    recordsEyebrow: 'Directorio público', recordsTitle: 'Personas, instituciones e iniciativas aprobadas.', recordsText: 'Este directorio muestra únicamente información revisada y autorizada para publicación.', directoryFilters: 'Filtros del directorio', searchLabel: 'Buscar registros', searchPlaceholder: 'Buscar por nombre, tema o disciplina', filterType: 'Tipo de registro', filterDiscipline: 'Disciplina', filterDepartment: 'Departamento', filterStatus: 'Estado', all: 'Todos', noRecordsTitle: 'No hay registros para estos filtros.', noRecordsText: 'Prueba otra búsqueda o vuelve a ver todos los registros aprobados.', details: 'Ver detalles', person: 'Personas y colaboradores', institution: 'Instituciones', problem: 'Problemas y necesidades', project: 'Proyectos', resource: 'Recursos y contribuciones', publicDatasetNote: 'Datos de demostración sintéticos. Los registros reales se publican solo tras revisión y consentimiento.',
+    recordsEyebrow: 'Directorio público', recordsTitle: 'Personas, instituciones e iniciativas aprobadas.', recordsText: 'Este directorio muestra únicamente información revisada y autorizada para publicación.', directoryFilters: 'Filtros del directorio', searchLabel: 'Buscar registros', searchPlaceholder: 'Buscar por nombre, tema o disciplina', filterType: 'Tipo de registro', filterDiscipline: 'Disciplina', filterDepartment: 'Departamento', filterStatus: 'Estado', all: 'Todos', noRecordsTitle: 'No hay registros para estos filtros.', noRecordsText: 'Prueba otra búsqueda o vuelve a ver todos los registros aprobados.', details: 'Ver detalles', person: 'Personas y colaboradores', institution: 'Instituciones', problem: 'Problemas y necesidades', project: 'Proyectos', resource: 'Recursos y contribuciones', publicDatasetNote: 'Registros públicos aprobados y datos institucionales de demostración.',
     recordLabels: { disciplines: 'Disciplinas', researchAreas: 'Áreas de investigación', location: 'Ubicación pública', status: 'Estado', institution: 'Institución', role: 'Rol', related: 'Relacionado con', contact: 'Contacto público', external: 'Enlace externo', professionalLinks: 'Enlaces profesionales' },
     mapEyebrow: 'Mapa público', mapTitle: 'Iniciativas aprobadas en Bolivia.', mapText: 'Las ubicaciones se muestran solo a nivel departamental o regional aprobado. No se muestran ubicaciones personales ni sensibles.', mapList: 'Vista de lista', mapLegend: 'Leyenda', mapProblems: 'Problemas', mapProjects: 'Proyectos', mapInstitutions: 'Instituciones', mapResources: 'Recursos institucionales', mapNoMarkers: 'No hay ubicaciones aprobadas para estos filtros.',
     recordSubmitEyebrow: 'Enviar un registro', recordSubmitTitle: 'Propón un problema, proyecto, institución o recurso.', recordSubmitText: 'Las propuestas se revisan de forma privada antes de incorporarse al conjunto público aprobado.', recordSubmitCta: 'Enviar un registro',
@@ -342,16 +350,22 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
     metaDescription: 'Red Científica Boliviana: an open network connecting people interested in science and research related to Bolivia.',
     skipToContent: 'Skip to content', openMenu: 'Open menu', closeMenu: 'Close menu', mainNavigation: 'Main navigation', languageLabel: 'Language',
     navHome: 'Home', navAbout: 'The network', navActivities: 'Activities', navDirectory: 'Directory', navMap: 'Map', navContact: 'Contact',
-    heroEyebrow: 'Science, collaboration, and Bolivia', heroTitle: 'Connecting people who conduct and support science related to Bolivia.', heroText: 'Red Científica Boliviana is an open space for sharing knowledge, fostering conversations, and bringing together people interested in research.', joinCta: 'Join the network', talkCta: 'Propose a talk',
-    aboutEyebrow: 'About the network', aboutTitle: 'A meeting point for research.', missionText: 'Our mission is to strengthen connections among people and communities who conduct research, communicate science, or are interested in scientific topics related to Bolivia.', objectivesTitle: 'Objectives', participateTitle: 'Who can take part?', participateText: 'Researchers, graduate students, professionals, institutions, and anyone interested in science and research related to Bolivia.',
-    objectives: ['Facilitate the exchange of knowledge and experience.', 'Give visibility to conversations on research related to Bolivia.', 'Encourage connections among people with shared scientific interests.'],
-    activitiesEyebrow: 'Activities', activitiesTitle: 'Conversations that bring knowledge closer.',
-    activities: [{ title: 'Scientific talks', text: 'Regular gatherings to explore research, questions, and perspectives.' }, { title: 'Research communication', text: 'Spaces for sharing scientific knowledge clearly and accessibly.' }, { title: 'Connections for collaboration', text: 'Opportunities to bring together people interested in research topics.' }],
-    activitiesListEyebrow: 'Programme', activitiesListTitle: 'Talks, seminars, and network gatherings.', noActivitiesTitle: 'No activities have been published yet.', noActivitiesText: 'Upcoming activities and material from past sessions will be published here.', upcoming: 'Upcoming activities', past: 'Past activities', recording: 'Recording available', calendarPrevious: 'Previous month', calendarNext: 'Next month', calendarViewDetails: 'View details', calendarRegistration: 'Registration', calendarPast: 'Past activity', calendarOnline: 'Online', activityTypes: { seminar: 'Seminar', talk: 'Talk', workshop: 'Workshop', meeting: 'Meeting', other: 'Other activity' },
-    coordinatorsEyebrow: 'The network', coordinatorsTitle: 'Coordinators and founders', coordinatorsText: 'People helping to lead Red Científica Boliviana.', coordinatorRole: 'Coordinator and founder',
+    heroEyebrow: 'Science, collaboration, and Bolivia', heroTitle: 'A mosaic of experiences to enrich Bolivian science.', heroText: 'We connect researchers, students and institutions in Bolivia and around the world to collaborate on what the country needs.', joinCta: 'Join the network', talkCta: 'Propose a talk',
+    aboutEyebrow: 'Who we are', aboutTitle: 'A meeting point for research.', missionText: "Red Científica Boliviana (RCB) is a platform for scientific collaboration that connects Bolivian researchers, at home and abroad, with scientists at institutions worldwide who research Bolivia. We want to make Bolivia's scientific potential visible internationally and build lasting channels for collaboration.", objectivesTitle: 'Goals', participateTitle: 'Who can take part?', participateText: 'Researchers, graduate students, professionals, institutions, and anyone interested in science and research related to Bolivia.',
+    objectives: [
+      'Build an interdisciplinary scientific community connecting Bolivian researchers with scientists worldwide.',
+      'Lower the barriers to access through a network of contacts, shared resources and direct institutional collaboration.',
+      'Hold regular seminars that share Bolivian research at home and abroad and bring it to society.',
+      'Position Bolivia as a reference research setting in the Ibero-American space.',
+      'Grow a knowledge ecosystem to train new researchers and transfer results to society.',
+    ],
+    activitiesEyebrow: 'Activities & Seminars', activitiesTitle: 'Conversations that bring knowledge closer.',
+    activities: [{ title: 'Scientific talks', text: 'Regular gatherings to explore research, questions, and perspectives.' }, { title: 'Monthly seminar', text: 'Every month, a network member presents their research online and takes questions.' }, { title: 'Connections for collaboration', text: 'Opportunities to bring together people and institutions interested in research on Bolivia.' }],
+    activitiesListEyebrow: 'Calendar', activitiesListTitle: 'Upcoming confirmed activities', noActivitiesTitle: 'No activities have been published yet.', noActivitiesText: 'See the next confirmed Red Científica Boliviana activities and join our scientific and learning events.', upcoming: 'Upcoming activities', past: 'Past seminars', recording: 'Recording available', calendarPrevious: 'Previous month', calendarNext: 'Next month', calendarViewDetails: 'View details', calendarRegistration: 'Registration', calendarPast: 'Past activity', calendarOnline: 'Online', activityTypes: { seminar: 'Seminar', talk: 'Talk', workshop: 'Workshop', meeting: 'Gathering', other: 'Other activity' },
+    coordinatorsEyebrow: 'The network', coordinatorsTitle: 'Coordinators and founders', coordinatorsText: 'The people who drive the network, as volunteers, from Bolivia and abroad.', coordinatorRole: 'Coordinator & founder',
     joinEyebrow: 'Join', joinTitle: 'Be part of the conversation.', joinText: 'Share your profile so the team can review it privately before any publication.', joinUnavailable: 'The membership form will be available soon.',
     formSpanishNotice: 'This form is currently available in Spanish. An English version will be available soon.', formSpanishLink: 'Open the Spanish form',
-    recordsEyebrow: 'Public directory', recordsTitle: 'Approved people, institutions, and initiatives.', recordsText: 'This directory shows only information reviewed and approved for publication.', directoryFilters: 'Directory filters', searchLabel: 'Search records', searchPlaceholder: 'Search by name, theme, or discipline', filterType: 'Record type', filterDiscipline: 'Discipline', filterDepartment: 'Department', filterStatus: 'Status', all: 'All', noRecordsTitle: 'No records match these filters.', noRecordsText: 'Try a different search or return to all approved records.', details: 'View details', person: 'People and collaborators', institution: 'Institutions', problem: 'Problems and needs', project: 'Projects', resource: 'Resources and contributions', publicDatasetNote: 'Synthetic demonstration data. Real records are published only after review and consent.',
+    recordsEyebrow: 'Public directory', recordsTitle: 'Approved people, institutions, and initiatives.', recordsText: 'This directory shows only information reviewed and approved for publication.', directoryFilters: 'Directory filters', searchLabel: 'Search records', searchPlaceholder: 'Search by name, theme, or discipline', filterType: 'Record type', filterDiscipline: 'Discipline', filterDepartment: 'Department', filterStatus: 'Status', all: 'All', noRecordsTitle: 'No records match these filters.', noRecordsText: 'Try a different search or return to all approved records.', details: 'View details', person: 'People and collaborators', institution: 'Institutions', problem: 'Problems and needs', project: 'Projects', resource: 'Resources and contributions', publicDatasetNote: 'Approved public records and institutional demonstration data.',
     recordLabels: { disciplines: 'Disciplines', researchAreas: 'Research areas', location: 'Public location', status: 'Status', institution: 'Institution', role: 'Role', related: 'Related to', contact: 'Public contact', external: 'External link', professionalLinks: 'Professional links' },
     mapEyebrow: 'Public map', mapTitle: 'Approved initiatives in Bolivia.', mapText: 'Locations are shown only at an approved department or regional level. Personal and sensitive locations are not shown.', mapList: 'List view', mapLegend: 'Legend', mapProblems: 'Problems', mapProjects: 'Projects', mapInstitutions: 'Institutions', mapResources: 'Institutional resources', mapNoMarkers: 'No approved locations match these filters.',
     recordSubmitEyebrow: 'Submit a record', recordSubmitTitle: 'Propose a problem, project, institution, or resource.', recordSubmitText: 'Submissions are reviewed privately before being added to the approved public dataset.', recordSubmitCta: 'Submit a record',
@@ -455,10 +469,19 @@ export const SITE_CONTENT: Record<'es' | 'en', SiteContent> = {
   },
 };
 
-export const COORDINATORS = [
-  { id: 'julio-chavez', name: 'Julio Chávez', roleKey: 'coordinatorRole' },
-  { id: 'kenji-shoji', name: 'Kenji Shoji', roleKey: 'coordinatorRole' },
-  { id: 'natalia-machaca', name: 'Natalia Machaca', roleKey: 'coordinatorRole' },
+export interface CoordinatorItem {
+  id: string;
+  name: string;
+  roleKey: string;
+  photo: string;
+}
+
+export const COORDINATORS: CoordinatorItem[] = [
+  { id: 'julio-chavez', name: 'Julio Chávez, PhD', roleKey: 'coordinatorRole', photo: '/assets/people/Julio_Chavez.jpg' },
+  { id: 'kenji-shoji', name: 'Kenji Shoji, PhD', roleKey: 'coordinatorRole', photo: '/assets/people/Kenji_Shoji.jpeg' },
+  { id: 'natalia-machaca', name: 'Natalia Machaca, PhD', roleKey: 'coordinatorRole', photo: '/assets/people/Natalia_Machaca.jpeg' },
+  { id: 'natalia-montellano', name: 'Natalia Montellano, PhD', roleKey: 'coordinatorRole', photo: '/assets/people/Natalia_Montellano.jpeg' },
+  { id: 'erna-jungstein', name: 'Erna Jungstein, MSc', roleKey: 'coordinatorRole', photo: '/assets/people/Erna_Jungstein.jpeg' },
 ];
 
 export interface Activity {
@@ -474,4 +497,25 @@ export interface Activity {
   recording_url?: string;
 }
 
-export const ACTIVITIES: Activity[] = [];
+export const ACTIVITIES: Activity[] = [
+  {
+    id: 'talk-2026-11-15',
+    published: true,
+    date: '2026-11-15',
+    type: 'meeting',
+    title_es: 'Encuentro de la Red Científica Boliviana',
+    title_en: 'Red Científica Boliviana gathering',
+    description_es: 'De 18:00 a 19:00, hora de Bolivia (UTC−4).',
+    description_en: '6:00–7:00 pm Bolivia time (UTC−4).',
+  },
+  {
+    id: 'talk-2026-12-15',
+    published: true,
+    date: '2026-12-15',
+    type: 'talk',
+    title_es: 'El impacto de la IA en la enseñanza',
+    title_en: 'The impact of AI on teaching',
+    description_es: 'Una charla sobre el impacto de la inteligencia artificial en la enseñanza.',
+    description_en: 'A talk about the impact of artificial intelligence on teaching.',
+  },
+];

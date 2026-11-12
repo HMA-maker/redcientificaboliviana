@@ -3,15 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --ink: #102a43;
-  --muted: #486581;
-  --blue: #0c5278;
-  --blue-dark: #0a3855;
-  --aqua: #b9e4e4;
-  --paper: #f7fafc;
-  --line: #d9e2ec;
-  --white: #fff;
-  --focus: #e45b35;
+  --palette-forest-green: #285747;
+  --palette-muted-brick-red: #A64B45;
+  --palette-warm-ochre: #C49A45;
+  --palette-warm-white: #F8F7F3;
+  --palette-pale-sage: #EDF2EE;
+  --palette-charcoal: #26343D;
+  --palette-canopy: #1f4535;
+  --palette-night: #173328;
+
+  --ink: #26343D;
+  --muted: #4d6157;
+  --blue: #285747;
+  --blue-dark: #173328;
+  --aqua: #C49A45;
+  --paper: #F8F7F3;
+  --line: #d6e0d8;
+  --white: #F8F7F3;
+  --focus: #A64B45;
 }
 
 html {
@@ -25,19 +34,19 @@ section[id] {
 
 body {
   color: var(--ink);
-  background: var(--white);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--palette-warm-white);
+  font-family: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: var(--palette-warm-ochre);
+  color: var(--palette-night);
 }
 
 :focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--palette-muted-brick-red);
   outline-offset: 2px;
 }

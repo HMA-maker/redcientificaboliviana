@@ -24,6 +24,7 @@ export interface PublicProfileData {
   id: string;
   full_name: string;
   title?: string;
+  role?: string;
   institution?: string;
   department?: string;
   city?: string;
@@ -33,8 +34,20 @@ export interface PublicProfileData {
   orcid_url?: string;
   google_scholar_url?: string;
   website_url?: string;
+  linkedin_url?: string;
+  languages?: string;
+  connection_to_bolivia?: string[];
+  participation_interests?: string[];
   disciplines?: string[];
   research_areas?: string[];
+}
+
+function normalizeAssetUrl(url?: string): string | undefined {
+  if (!url) return undefined;
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
+    return url;
+  }
+  return `/${url}`;
 }
 
 interface PublicProfileModalProps {
@@ -131,15 +144,23 @@ export const PublicProfileModal: React.FC<PublicProfileModalProps> = ({ profileI
             id: match.record_id,
             full_name: match.name || match.title_es || 'Investigador',
             title: language === 'es' ? (match.title_es || match.title_en) : (match.title_en || match.title_es),
+            role: language === 'es' ? (match.role_es || match.role_en) : (match.role_en || match.role_es),
             institution: match.institution,
             department: match.department || match.city_region,
             city: match.city_region,
             country: match.country,
             biography: language === 'es' ? (match.biography_es || match.summary_es) : (match.biography_en || match.summary_en),
-            avatar_url: match.avatar_url,
+            avatar_url: normalizeAssetUrl(match.avatar_url || match.photo_url),
             orcid_url: match.orcid_url,
             google_scholar_url: match.google_scholar_url,
             website_url: match.website_url,
+            linkedin_url: match.linkedin_url,
+            languages: match.languages,
+            connection_to_bolivia: match.connection_to_bolivia || [],
+            participation_interests:
+              language === 'es'
+                ? match.participation_interests_es || []
+                : match.participation_interests_en || match.participation_interests_es || [],
             disciplines: language === 'es' ? (match.disciplines_es || []) : (match.disciplines_en || match.disciplines_es || []),
             research_areas: language === 'es' ? (match.research_areas_es || []) : (match.research_areas_en || match.research_areas_es || []),
           });
@@ -181,7 +202,7 @@ export const PublicProfileModal: React.FC<PublicProfileModalProps> = ({ profileI
         aria-labelledby="public-profile-title"
       >
         {/* Cover & Top Bar */}
-        <div className="relative bg-gradient-to-r from-blue-dark via-blue to-cyan-700 h-28 px-6 pt-4 flex items-start justify-between">
+        <div className="relative bg-gradient-to-r from-night via-forest to-canopy h-28 px-6 pt-4 flex items-start justify-between">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-white/20 backdrop-blur-md text-white border border-white/30 shadow-sm">
             <ShieldCheck className="w-3.5 h-3.5 text-cyan-200" />
             {content.publicProfileBadge}
@@ -327,8 +348,58 @@ export const PublicProfileModal: React.FC<PublicProfileModalProps> = ({ profileI
                 </div>
               )}
 
+              {/* Languages & Participation Interests */}
+              {(profile.languages ||
+                (profile.connection_to_bolivia && profile.connection_to_bolivia.length > 0) ||
+                (profile.participation_interests && profile.participation_interests.length > 0)) && (
+                <div className="space-y-3 pt-2 border-t border-line text-xs">
+                  {profile.languages && (
+                    <p className="text-ink">
+                      <strong className="uppercase tracking-wider text-muted mr-2">
+                        {language === 'es' ? 'Idiomas:' : 'Languages:'}
+                      </strong>
+                      <span>{profile.languages}</span>
+                    </p>
+                  )}
+                  {profile.connection_to_bolivia && profile.connection_to_bolivia.length > 0 && (
+                    <div>
+                      <p className="font-bold uppercase tracking-wider text-muted mb-1">
+                        {language === 'es' ? 'Relación con Bolivia' : 'Connection to Bolivia'}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {profile.connection_to_bolivia.map((c, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2.5 py-1 rounded-md bg-pale-sage border border-line text-charcoal font-medium"
+                          >
+                            {c}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  {profile.participation_interests && profile.participation_interests.length > 0 && (
+                    <div>
+                      <p className="font-bold uppercase tracking-wider text-muted mb-1">
+                        {language === 'es' ? 'Intereses de participación' : 'Participation interests'}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {profile.participation_interests.map((p, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2.5 py-1 rounded-md bg-paper border border-line text-charcoal font-medium"
+                          >
+                            {p}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Official Academic Links */}
-              {(profile.orcid_url || profile.google_scholar_url || profile.website_url) && (
+              {(profile.orcid_url || profile.google_scholar_url || profile.website_url || profile.linkedin_url) && (
                 <div className="space-y-2 pt-2 border-t border-line">
                   <h2 className="text-xs font-bold uppercase tracking-wider text-muted flex items-center gap-1.5">
                     <Globe className="w-3.5 h-3.5 text-blue" />

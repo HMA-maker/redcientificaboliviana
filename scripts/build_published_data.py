@@ -28,9 +28,13 @@ PERSON_CONSENTS = {
     "consent_professional_links": ("orcid_url", "website_url", "google_scholar_url", "linkedin_url"),
     "consent_photograph": ("photo_url",),
     "consent_location": ("country", "city_region", "public_location_label_es", "public_location_label_en"),
-    "consent_role": ("role_es", "role_en"),
+    "consent_role": ("title_es", "title_en", "role_es", "role_en"),
+    "consent_bolivia_relationship": ("connection_to_bolivia",),
+    "consent_languages": ("languages",),
+    "consent_participation_interests": ("participation_interests_es", "participation_interests_en"),
+    "consent_project_interests": ("participation_topics_es", "participation_topics_en"),
 }
-PERSON_REQUIRED_CONSENTS = set(PERSON_CONSENTS) | {"consent_languages", "consent_participation_interests", "consent_project_interests"}
+PERSON_REQUIRED_CONSENTS = set(PERSON_CONSENTS)
 
 
 def fail(message):
@@ -95,10 +99,7 @@ def transform(row, filename, line, expected_type):
             if not approved and any(row.get(field) for field in public_fields):
                 fail(f"{location}: {consent_field} is No but a related public field is populated")
             row.pop(consent_field, None)
-        for consent_field in ("consent_languages", "consent_participation_interests", "consent_project_interests"):
-            consent(row.get(consent_field, ""), f"{location} {consent_field}")
-            row.pop(consent_field, None)
-    for field in ("research_areas_es", "research_areas_en", "disciplines_es", "disciplines_en"):
+    for field in ("research_areas_es", "research_areas_en", "disciplines_es", "disciplines_en", "connection_to_bolivia", "participation_interests_es", "participation_interests_en"):
         if field in row:
             row[field] = [item.strip() for item in row[field].split(";") if item.strip()]
     if "map_visible" in row:
@@ -135,7 +136,7 @@ def main():
                 seen_ids.add(row["record_id"])
                 records.append(row)
     payload = {
-        "dataset_notice": "Synthetic demonstration data only. Do not replace with raw form responses.",
+        "dataset_notice": "Approved public records only. Private intake fields are excluded.",
         "records": records,
     }
     OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

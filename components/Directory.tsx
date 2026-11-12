@@ -42,11 +42,27 @@ export interface RecordItem {
   orcid_url?: string;
   website_url?: string;
   google_scholar_url?: string;
+  linkedin_url?: string;
   avatar_url?: string;
+  photo_url?: string;
+  role_es?: string;
+  role_en?: string;
+  languages?: string;
+  connection_to_bolivia?: string[];
+  participation_interests_es?: string[];
+  participation_interests_en?: string[];
   disciplines_es?: string[];
   disciplines_en?: string[];
   research_areas_es?: string[];
   research_areas_en?: string[];
+}
+
+function normalizeAssetUrl(url?: string): string | undefined {
+  if (!url) return undefined;
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
+    return url;
+  }
+  return `/${url}`;
 }
 
 const BOLIVIA_DEPARTMENTS = [
@@ -561,6 +577,7 @@ export const Directory: React.FC = () => {
               const location = language === 'es' ? rec.public_location_label_es : rec.public_location_label_en;
               const disciplines = language === 'es' ? (rec.disciplines_es || []) : (rec.disciplines_en || rec.disciplines_es || []);
               const researchAreas = language === 'es' ? (rec.research_areas_es || []) : (rec.research_areas_en || rec.research_areas_es || []);
+              const avatarSrc = normalizeAssetUrl(rec.avatar_url || rec.photo_url);
 
               return (
                 <div
@@ -596,10 +613,10 @@ export const Directory: React.FC = () => {
                     <div className="flex items-start gap-3.5 mb-2">
                       {isPerson && (
                         <div className="w-12 h-12 rounded-full bg-paper border border-line flex items-center justify-center overflow-hidden flex-shrink-0 shadow-xs">
-                          {rec.avatar_url ? (
-                            <img src={rec.avatar_url} alt={rec.name || ''} className="w-full h-full object-cover" />
+                          {avatarSrc ? (
+                            <img src={avatarSrc} alt={rec.name || ''} className="w-full h-full object-cover object-top" />
                           ) : (
-                            <div className="w-full h-full bg-gradient-to-br from-blue to-cyan-700 text-white flex items-center justify-center text-sm font-black">
+                            <div className="w-full h-full bg-gradient-to-br from-blue to-canopy text-white flex items-center justify-center text-sm font-black">
                               {(rec.name || 'C').charAt(0).toUpperCase()}
                             </div>
                           )}

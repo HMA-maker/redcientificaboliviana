@@ -20,15 +20,15 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-line bg-warm-white/95 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 min-h-[76px] flex items-center justify-between gap-4">
         {/* Brand */}
-        <a href="#inicio" className="flex items-center gap-2.5 text-blue-dark font-bold leading-tight tracking-tight no-underline">
-          <div className="w-10 h-10 rounded-br-2xl rounded-tl-full rounded-tr-full rounded-bl-full bg-blue text-white flex items-center justify-center text-xs tracking-wider font-extrabold shadow-sm">
+        <a href="#inicio" className="flex items-center gap-2.5 text-forest font-bold leading-tight tracking-tight no-underline">
+          <div className="w-10 h-10 rounded-br-2xl rounded-tl-full rounded-tr-full rounded-bl-full bg-forest text-warm-white border border-ochre/40 flex items-center justify-center text-xs tracking-wider font-extrabold shadow-sm">
             RCB
           </div>
-          <span className="text-sm">
-            Red Científica<br />Boliviana
+          <span className="font-serif text-lg sm:text-xl font-normal text-charcoal leading-none">
+            Red Científica Boliviana
           </span>
         </a>
 
