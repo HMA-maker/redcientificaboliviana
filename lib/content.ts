@@ -217,7 +217,7 @@ export const SITE_CONFIG = {
   contactEmail: 'contacto@redcientificaboliviana.org',
   talkFormUrl: 'https://forms.gle/9yzwQuFtNvyenh7y7',
   calendarEmbedUrl:
-    'https://calendar.google.com/calendar/embed?src=redcientificaboliviana%40gmail.com&ctz=America%2FLa_Paz',
+    'https://calendar.google.com/calendar/embed?src=redcientificaboliviana%40gmail.com&ctz=America%2FLa_Paz&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=1&showCalendars=0&showTz=0',
   profileEditorWebappUrl: null as string | null,
   forms: {
     join: { es: null as string | null, en: null as string | null },

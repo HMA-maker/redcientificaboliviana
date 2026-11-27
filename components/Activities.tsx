@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
-import { ACTIVITIES } from '@/lib/content';
+import { ACTIVITIES, SITE_CONFIG } from '@/lib/content';
 import { FEATURED_SEMINAR, PAST_SEMINARS, HIGHLIGHTS } from '@/lib/upstreamData';
 import {
   Calendar,
@@ -148,7 +148,7 @@ export const Activities: React.FC = () => {
                 </h4>
               </div>
               <a
-                href="https://calendar.google.com/calendar/embed?src=redcientificaboliviana%40gmail.com&ctz=America%2FLa_Paz"
+                href={SITE_CONFIG.calendarEmbedUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-forest hover:text-brick transition-colors"
@@ -161,7 +161,7 @@ export const Activities: React.FC = () => {
             <div className="w-full overflow-hidden rounded-2xl border border-line bg-white shadow-xs">
               <div className="relative w-full h-[520px] sm:h-[600px]">
                 <iframe
-                  src="https://calendar.google.com/calendar/embed?src=redcientificaboliviana%40gmail.com&ctz=America%2FLa_Paz"
+                  src={SITE_CONFIG.calendarEmbedUrl}
                   style={{ border: 0 }}
                   width="100%"
                   height="100%"
