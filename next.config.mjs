@@ -12,6 +12,9 @@ const nextConfig = {
   },
   basePath: isGithubPages ? '/redcientificaboliviana' : '',
   assetPrefix: isGithubPages ? '/redcientificaboliviana' : '',
+  experimental: {
+    agentUpgrade: 'security',
+  },
 };
 
 export default nextConfig;
