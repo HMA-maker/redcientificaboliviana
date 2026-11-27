@@ -1,8 +1,5 @@
-import fs from 'fs';
-
 /** @type {import('next').NextConfig} */
-const hasCname = fs.existsSync('./CNAME');
-const isGithubPages = process.env.GITHUB_PAGES === 'true' && !hasCname;
+const isGithubPages = process.env.GITHUB_PAGES === 'true' && process.env.CUSTOM_DOMAIN !== 'true';
 
 const nextConfig = {
   reactStrictMode: true,
