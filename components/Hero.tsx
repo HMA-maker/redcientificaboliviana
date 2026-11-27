@@ -53,18 +53,18 @@ export const Hero: React.FC = () => {
 
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="#unete"
+                href="#directorio"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-bold text-sm bg-ochre text-night hover:bg-warm-white transition-all shadow-md hover:shadow-lg active:scale-95"
               >
-                <span>{content.joinCta}</span>
+                <span>{content.navDirectory}</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
-                href="#directorio"
+                href="#red"
                 className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg font-bold text-sm border border-warm-white/35 text-warm-white hover:bg-white/10 transition-all active:scale-95"
               >
-                {content.navDirectory}
+                {content.navAbout}
               </a>
 
               <a

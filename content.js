@@ -1,9 +1,9 @@
 /* Update public text, links, and talk data in this file. */
 window.SITE_CONFIG = {
-  contactEmail: 'redcientificaboliviana@gmail.com',
+  contactEmail: 'contacto@redcientificaboliviana.org',
   talkFormUrl: 'https://forms.gle/9yzwQuFtNvyenh7y7',
   forms: {
-    join: { es: 'https://forms.gle/78z4KXUd22RLJPcg7', en: null },
+    join: { es: null, en: null },
     submit: { es: 'https://forms.gle/2RrBAQgNgHHPqehM6', en: null },
   },
 };

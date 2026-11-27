@@ -4,13 +4,13 @@
 
 ## Secciones y Recursos Principales
 - **Inicio**: Misión, objetivos y red de apoyo a la investigación boliviana.
-- **La Red**: Equipo coordinador y miembros fundadores (Julio Chávez, Kenji Shoji, Natalia Machaca).
+- **La Red**: Equipo coordinador y miembros fundadores (Julio Chávez, Kenji Shoji, Natalia Machaca, Natalia Montellano, Erna Jungstein).
 - **Actividades**: Ciclo de charlas científicas, seminarios y conferencias académicas virtuales.
 - **Directorio de Investigadores**: Catálogo dinámico de científicos bolivianos con perfiles verificados, ORCID, Google Scholar, disciplinas y áreas de especialidad.
 - **Directorio Institucional**: Universidades públicas y privadas, laboratorios especializados y centros de investigación asociados en Bolivia.
-- **Formularios Oficiales**: Convocatoria para proponer charlas y formulario de integración a la comunidad científica.
+- **Formularios Oficiales**: Convocatoria para proponer charlas y vinculación con la comunidad científica.
 
 ## Contacto y Canales Oficiales
 - **Sitio Web Oficial**: https://redcientificaboliviana.org
-- **Correo de Coordinación**: redcientificaboliviana@gmail.com
+- **Correo de Coordinación**: contacto@redcientificaboliviana.org
 - **Código y Repositorio**: https://github.com/redcientificaboliviana

@@ -91,16 +91,7 @@ export const Navbar: React.FC = () => {
                 </div>
               )}
             </div>
-          ) : (
-            <button
-              type="button"
-              onClick={() => openAuthModal('login')}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-blue/40 text-blue font-bold text-xs hover:bg-blue/10 transition-colors shadow-sm"
-            >
-              <LogIn className="w-3.5 h-3.5" />
-              <span>{content.loginNav}</span>
-            </button>
-          )}
+          ) : null}
 
           {/* Language Switcher */}
           <div className="flex items-center p-1 border border-line rounded-full bg-paper" role="group" aria-label={content.languageLabel}>
@@ -181,18 +172,7 @@ export const Navbar: React.FC = () => {
                   <span>{content.logoutButton}</span>
                 </button>
               </div>
-            ) : (
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openAuthModal('login');
-                }}
-                className="w-full py-2.5 px-3 rounded-lg bg-blue text-white text-xs font-bold flex items-center justify-center gap-2 shadow"
-              >
-                <LogIn className="w-4 h-4" />
-                <span>{content.loginNav}</span>
-              </button>
-            )}
+            ) : null}
           </div>
         </div>
       )}

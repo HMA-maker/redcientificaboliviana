@@ -41,9 +41,9 @@ export const Footer: React.FC = () => {
               {content.contactTitle}
             </h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#unete" className="hover:text-ochre transition-colors">{content.joinCta}</a></li>
-              <li><a href="#charlas" className="hover:text-ochre transition-colors">{content.talkCta}</a></li>
               <li><a href="#contacto" className="hover:text-ochre transition-colors">{content.navContact}</a></li>
+              <li><a href="#charlas" className="hover:text-ochre transition-colors">{content.talkCta}</a></li>
+              <li><a href={`mailto:${content.metaDescription ? 'contacto@redcientificaboliviana.org' : ''}`} className="hover:text-ochre transition-colors">Email</a></li>
             </ul>
           </div>
         </div>

@@ -52,36 +52,14 @@ export const Contact: React.FC = () => {
             </div>
 
             <div className="pt-5 border-t border-white/10 space-y-3">
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={SITE_CONFIG.profileEditorWebappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-bold text-sm bg-ochre text-night hover:bg-warm-white transition-all shadow active:scale-95"
-                >
-                  <FileEdit className="w-4 h-4" />
-                  <span>
-                    {language === 'es' ? 'Crear o editar perfil' : 'Create or edit profile'}
-                  </span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-
-                {SITE_CONFIG.forms.join.es && (
-                  <a
-                    href={SITE_CONFIG.forms.join.es}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-bold text-sm border border-white/30 text-warm-white hover:bg-white/10 transition-all"
-                  >
-                    <span>{content.joinCta}</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                )}
+              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 border border-white/20 text-xs font-semibold text-pale-sage">
+                <span className="w-2 h-2 rounded-full bg-ochre animate-pulse" />
+                <span>{content.joinUnavailable}</span>
               </div>
               <p className="text-xs text-pale-sage/75">
                 {language === 'es'
-                  ? 'Las solicitudes se revisan de forma privada antes de publicarse en el directorio.'
-                  : 'Submissions are reviewed privately before being published in the directory.'}
+                  ? 'El registro y adhesión de nuevos perfiles se encuentra temporalmente en pausa.'
+                  : 'Registration and new profile submissions are currently on hold.'}
               </p>
             </div>
           </div>
