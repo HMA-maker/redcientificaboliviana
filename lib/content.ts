@@ -216,6 +216,8 @@ export interface SiteContent {
 export const SITE_CONFIG = {
   contactEmail: 'redcientificaboliviana@gmail.com',
   talkFormUrl: 'https://forms.gle/9yzwQuFtNvyenh7y7',
+  calendarEmbedUrl:
+    'https://calendar.google.com/calendar/embed?src=redcientificaboliviana%40gmail.com&ctz=America%2FLa_Paz',
   profileEditorWebappUrl:
     'https://script.google.com/macros/s/AKfycbxSDKfVQdHkJM0NZHeMaKJ1BVtx7J7rk1U8htf0cmd3DBphYrmFfW8lJHovCOLcYxzkcg/exec',
   forms: {

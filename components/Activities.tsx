@@ -137,6 +137,46 @@ export const Activities: React.FC = () => {
               </span>
             </a>
           </div>
+
+          {/* Google Calendar Embed */}
+          <div className="mt-8 pt-8 border-t border-line">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-forest" />
+                <h4 className="font-serif text-2xl font-normal text-charcoal">
+                  {language === 'es' ? 'Calendario en vivo de la red' : 'Live network calendar'}
+                </h4>
+              </div>
+              <a
+                href="https://calendar.google.com/calendar/embed?src=redcientificaboliviana%40gmail.com&ctz=America%2FLa_Paz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-forest hover:text-brick transition-colors"
+              >
+                <span>{language === 'es' ? 'Abrir en Google Calendar' : 'Open in Google Calendar'}</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            <div className="w-full overflow-hidden rounded-2xl border border-line bg-white shadow-xs">
+              <div className="relative w-full h-[520px] sm:h-[600px]">
+                <iframe
+                  src="https://calendar.google.com/calendar/embed?src=redcientificaboliviana%40gmail.com&ctz=America%2FLa_Paz"
+                  style={{ border: 0 }}
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  scrolling="no"
+                  title={
+                    language === 'es'
+                      ? 'Calendario de la Red Científica Boliviana'
+                      : 'Red Científica Boliviana Calendar'
+                  }
+                  className="w-full h-full"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Monthly Seminar & Archive */}
