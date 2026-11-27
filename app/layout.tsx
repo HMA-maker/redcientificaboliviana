@@ -5,6 +5,8 @@ import { AuthProvider } from '@/context/AuthContext';
 import { AuthModal } from '@/components/AuthModal';
 import { ProfileModal } from '@/components/ProfileModal';
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://redcientificaboliviana.org'),
   title: {
@@ -54,9 +56,9 @@ export const metadata: Metadata = {
     description: 'Conectamos a quienes hacen y acompañan la ciencia relacionada con Bolivia.',
   },
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: `${basePath}/favicon.svg`,
+    shortcut: `${basePath}/favicon.svg`,
+    apple: `${basePath}/favicon.svg`,
   },
 };
 

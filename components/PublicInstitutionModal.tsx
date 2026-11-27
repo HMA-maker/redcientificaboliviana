@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { supabase, isSupabaseConfigured } from '@/lib/supabaseClient';
 import recordsData from '@/data/published-records.json';
+import { getAssetPath } from '@/lib/assets';
 import {
   X,
   Building2,
@@ -257,7 +258,7 @@ export const PublicInstitutionModal: React.FC<PublicInstitutionModalProps> = ({
                 <div className="w-20 h-20 rounded-2xl bg-white border-4 border-white shadow-lg overflow-hidden flex items-center justify-center flex-shrink-0 bg-slate-50">
                   {institution.logo_url || institution.avatar_url ? (
                     <img
-                      src={institution.logo_url || institution.avatar_url}
+                      src={getAssetPath(institution.logo_url || institution.avatar_url)}
                       alt={name}
                       className="w-full h-full object-contain p-1"
                     />
@@ -355,7 +356,7 @@ export const PublicInstitutionModal: React.FC<PublicInstitutionModalProps> = ({
                         <div className="flex items-center gap-2.5 min-w-0">
                           <div className="w-8 h-8 rounded-full bg-blue text-white flex items-center justify-center text-xs font-bold flex-shrink-0">
                             {sci.avatar_url ? (
-                              <img src={sci.avatar_url} alt={sci.name} className="w-full h-full object-cover rounded-full" />
+                              <img src={getAssetPath(sci.avatar_url)} alt={sci.name} className="w-full h-full object-cover rounded-full" />
                             ) : (
                               sci.name.charAt(0).toUpperCase()
                             )}

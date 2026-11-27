@@ -6,6 +6,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { supabase, isSupabaseConfigured } from '@/lib/supabaseClient';
 import { Profile, ModerationStatus } from '@/types/database';
 import { PublicProfileModal } from '@/components/PublicProfileModal';
+import { getAssetPath } from '@/lib/assets';
 import {
   X,
   User,
@@ -506,7 +507,7 @@ export const ProfileModal: React.FC = () => {
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-paper border border-line flex items-center justify-center overflow-hidden flex-shrink-0">
                         {avatarUrl ? (
-                          <img src={avatarUrl} alt={fullName} className="w-full h-full object-cover" />
+                          <img src={getAssetPath(avatarUrl)} alt={fullName} className="w-full h-full object-cover" />
                         ) : (
                           <User className="w-5 h-5 text-muted" />
                         )}

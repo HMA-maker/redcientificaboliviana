@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { supabase, isSupabaseConfigured } from '@/lib/supabaseClient';
 import recordsData from '@/data/published-records.json';
+import { getAssetPath } from '@/lib/assets';
 import {
   X,
   User,
@@ -255,7 +256,7 @@ export const PublicProfileModal: React.FC<PublicProfileModalProps> = ({ profileI
               <div className="flex flex-col sm:flex-row items-start sm:items-end gap-4 -mt-10 mb-2">
                 <div className="w-20 h-20 rounded-2xl bg-white border-4 border-white shadow-lg overflow-hidden flex items-center justify-center flex-shrink-0 bg-slate-50">
                   {profile.avatar_url ? (
-                    <img src={profile.avatar_url} alt={profile.full_name} className="w-full h-full object-cover" />
+                    <img src={getAssetPath(profile.avatar_url)} alt={profile.full_name} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full bg-blue text-white flex items-center justify-center text-2xl font-black">
                       {profile.full_name.charAt(0).toUpperCase()}

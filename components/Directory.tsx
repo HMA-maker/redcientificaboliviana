@@ -22,6 +22,7 @@ import {
 import { PublicProfileModal } from '@/components/PublicProfileModal';
 import { InstitutionModal } from '@/components/InstitutionModal';
 import { PublicInstitutionModal } from '@/components/PublicInstitutionModal';
+import { getAssetPath } from '@/lib/assets';
 
 export interface RecordItem {
   record_id: string;
@@ -59,10 +60,7 @@ export interface RecordItem {
 
 function normalizeAssetUrl(url?: string): string | undefined {
   if (!url) return undefined;
-  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('/')) {
-    return url;
-  }
-  return `/${url}`;
+  return getAssetPath(url);
 }
 
 const BOLIVIA_DEPARTMENTS = [

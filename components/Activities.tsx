@@ -4,6 +4,7 @@ import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { ACTIVITIES, SITE_CONFIG } from '@/lib/content';
 import { FEATURED_SEMINAR, PAST_SEMINARS, HIGHLIGHTS } from '@/lib/upstreamData';
+import { getAssetPath } from '@/lib/assets';
 import {
   Calendar,
   MessageSquare,
@@ -239,7 +240,7 @@ export const Activities: React.FC = () => {
                     {sem.banner && (
                       <div className="aspect-[16/10] bg-night overflow-hidden border-b border-white/10">
                         <img
-                          src={sem.banner}
+                          src={getAssetPath(sem.banner)}
                           alt={language === 'es' ? sem.alt_es || sem.title_es : sem.alt_en || sem.title_en}
                           className="w-full h-full object-cover"
                           loading="lazy"

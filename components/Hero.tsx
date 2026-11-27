@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { LANDING_IMAGES } from '@/lib/upstreamData';
+import { getAssetPath } from '@/lib/assets';
 import { Sparkles, ArrowRight, Image as ImageIcon, X, ExternalLink } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -105,7 +106,7 @@ export const Hero: React.FC = () => {
                     className="aspect-square rounded-xl overflow-hidden bg-night border border-white/10 relative group"
                   >
                     <img
-                      src={img.src}
+                      src={getAssetPath(img.src)}
                       alt={img.alt}
                       loading="eager"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -169,7 +170,7 @@ export const Hero: React.FC = () => {
                 {LANDING_IMAGES.map((item) => (
                   <li key={item.src} className="py-3 flex items-start gap-3">
                     <img
-                      src={item.src}
+                      src={getAssetPath(item.src)}
                       alt={item.alt}
                       className="w-14 h-14 rounded-lg object-cover border border-line shrink-0"
                     />

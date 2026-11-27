@@ -3,6 +3,7 @@
 import React from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { COORDINATORS } from '@/lib/content';
+import { getAssetPath } from '@/lib/assets';
 
 export const Coordinators: React.FC = () => {
   const { content } = useLanguage();
@@ -30,7 +31,7 @@ export const Coordinators: React.FC = () => {
             >
               <div className="w-28 h-28 rounded-full overflow-hidden border-2 border-forest/20 mb-4 bg-pale-sage shadow-inner shrink-0">
                 <img
-                  src={coord.photo}
+                  src={getAssetPath(coord.photo)}
                   alt={coord.name}
                   className="w-full h-full object-cover object-top"
                   loading="lazy"
